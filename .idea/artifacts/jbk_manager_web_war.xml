@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jbk-manager-web:war">
+    <output-path>$PROJECT_DIR$/jbk-manager/jbk-manager-web/target</output-path>
+    <root id="archive" name="jbk-manager-web.war">
+      <element id="artifact" artifact-name="jbk-manager-web:war exploded" />
+    </root>
+  </artifact>
+</component>
