@@ -4,4 +4,4 @@
 /**
  * 论坛dao层接口所在包
  */
-package com.jbk.forum.dao;
+package com.jbk.dao.forum;
