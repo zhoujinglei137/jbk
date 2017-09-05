@@ -17,9 +17,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <junit.version>4.12</junit.version>
-        <hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
+
         <spring.version>4.2.8.RELEASE</spring.version>
-        <springData.version>1.11.2.RELEASE</springData.version>
+        <spring-data-jpa.version>1.11.4.RELEASE</spring-data-jpa.version>
+        <hibernate.version>5.2.10.Final</hibernate.version>
+        <hibernate-jpa.version>1.0.0.Final</hibernate-jpa.version>
         <mysql.version>5.1.40</mysql.version>
         <slf4j.version>1.7.21</slf4j.version>
         <logback.core.version>1.1.1</logback.core.version>
@@ -123,12 +125,6 @@
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.classic.version}</version>
             </dependency>
-            <!--jpa-->
-            <dependency>
-                <groupId>org.hibernate.javax.persistence</groupId>
-                <artifactId>hibernate-jpa-2.1-api</artifactId>
-                <version>${hibernate.jpa.version}</version>
-            </dependency>
 
 
 
@@ -147,29 +143,38 @@
 
 
             <!--4: Spring相关 -->
-            <!--Spring核心依赖 -->
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-core</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework</groupId>
-                <artifactId>spring-beans</artifactId>
-                <version>${spring.version}</version>
-            </dependency>
+            <!-- spring -->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-            <!--Spring DAO层的依赖 -->
+            <!-- spring data jpa -->
             <dependency>
                 <groupId>org.springframework.data</groupId>
                 <artifactId>spring-data-jpa</artifactId>
-                <version>${springData.version}</version>
+                <version>${spring-data-jpa.version}</version>
+            </dependency>
+            <!-- hibernate -->
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                <version>${hibernate.version}</version>
+            </dependency>
+            <!--hibernate-jpa-->
+            <dependency>
+                <groupId>org.hibernate.javax.persistence</groupId>
+                <artifactId>hibernate-jpa-2.1-api</artifactId>
+                <version>${hibernate-jpa.version}</version>
             </dependency>
 
+            <!--spring-beans-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+           <!--spring-jdbc-->
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-jdbc</artifactId>
@@ -198,6 +203,7 @@
                 <version>${spring.version}</version>
                 <scope>test</scope>
             </dependency>
+
             <!--消息服务中间件-->
             <dependency>
                 <groupId>org.springframework</groupId>

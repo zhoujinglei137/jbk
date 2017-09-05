@@ -1,7 +1,7 @@
 package com.jbk.dao.invest;
 
 import com.jbk.pojo.invest.Invest;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ import java.io.Serializable;
  */
 
 
-public interface InvestDao extends CrudRepository<Invest,Serializable>{
+public interface InvestDao extends JpaRepository<Invest,Serializable> {
 
 
 }
