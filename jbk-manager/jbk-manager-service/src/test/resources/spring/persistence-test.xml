@@ -1,0 +1,31 @@
+<persistence version="2.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <!--持久模块名称  -->
+    <persistence-unit name="dbconfig-test" transaction-type="RESOURCE_LOCAL">
+    <!--标记持久层的具体实现  -->
+    <provider>org.hibernate.ejb.HibernatePersistence</provider>  
+   
+    <!--数据库连接属性信息  -->  
+        <properties>  
+            <!--配置数据库驱动 -->
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />  
+             <!--配置数据库url -->  
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/jbk?characterEncoding=UTF-8" />
+            <!--配置数据库用户名 -->  
+            <property name="hibernate.connection.username" value="root" />
+            <!--配置数据库密码 -->  
+            <property name="hibernate.connection.password" value="123456" />
+            <!--配置Hibernate方言 --> 
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL57Dialect" />
+            <!--设置外连接抓取树的最大深度 -->  
+            <property name="hibernate.max_fetch_depth" value="10" />  
+            <!--自动输出schema创建DDL语句 -->  
+            <property name="hibernate.hbm2ddl.auto" value="update" />
+            <!-- 显示SQL -->
+            <property name="hibernate.show_sql" value="true" />  
+            <!--格式化SQL语句  -->
+            <property name="hibernate.format_sql" value="true" />  
+            <!--验证  -->
+            <property name="javax.persistence.validation.mode" value="none"/>  
+        </properties>  
+    </persistence-unit>  
+</persistence>

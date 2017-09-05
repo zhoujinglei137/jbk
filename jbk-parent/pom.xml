@@ -17,6 +17,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
         <junit.version>4.12</junit.version>
+        <hibernate.jpa.version>1.0.0.Final</hibernate.jpa.version>
         <spring.version>4.2.8.RELEASE</spring.version>
         <springData.version>1.11.2.RELEASE</springData.version>
         <mysql.version>5.1.40</mysql.version>
@@ -122,6 +123,13 @@
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.classic.version}</version>
             </dependency>
+            <!--jpa-->
+            <dependency>
+                <groupId>org.hibernate.javax.persistence</groupId>
+                <artifactId>hibernate-jpa-2.1-api</artifactId>
+                <version>${hibernate.jpa.version}</version>
+            </dependency>
+
 
 
             <!-- mysql -->
