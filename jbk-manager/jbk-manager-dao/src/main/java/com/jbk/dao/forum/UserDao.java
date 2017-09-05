@@ -1,4 +1,4 @@
-package com.jbk.forum.dao;
+package com.jbk.dao.forum;
 
 import com.jbk.pojo.forum.User;
 import org.springframework.data.repository.CrudRepository;
