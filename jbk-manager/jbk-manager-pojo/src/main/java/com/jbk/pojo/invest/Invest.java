@@ -1,5 +1,7 @@
 package com.jbk.pojo.invest;
 
+
+import com.jbk.pojo.product.Product;
 import com.jbk.pojo.user.User;
 
 import javax.persistence.*;
@@ -26,7 +28,14 @@ public class Invest {
     @JoinColumn(name = "uid")
     private User user;
 
-    //private Product product;
+    /**
+     * 投资产品
+     */
+    @OneToOne(targetEntity = Product.class,fetch = FetchType.EAGER)
+    @JoinColumn(name = "pid")
+    private Product product;
+
+
 
     /**
      * 投资金额
@@ -49,21 +58,30 @@ public class Invest {
     /**
      * 预期收益
      */
-    @Column(name = "earnings_limit")
+    @Transient
     private Double earningsLimit;
 
     public Long getId() {
         return id;
     }
 
+    /***
+     * 主键
+     * @param id
+     */
     public void setId(Long id) {
         this.id = id;
     }
+
 
     public User getUser() {
         return user;
     }
 
+    /***
+     * 投资人
+     * @return
+     */
     public void setUser(User user) {
         this.user = user;
     }
@@ -72,6 +90,10 @@ public class Invest {
         return investLimit;
     }
 
+    /**
+     * 投资金额
+     * @param investLimit
+     */
     public void setInvestLimit(Double investLimit) {
         this.investLimit = investLimit;
     }
@@ -80,6 +102,10 @@ public class Invest {
         return investDate;
     }
 
+    /**
+     * 投资日期
+     * @param investDate
+     */
     public void setInvestDate(Date investDate) {
         this.investDate = investDate;
     }
@@ -88,15 +114,49 @@ public class Invest {
         return earningsDate;
     }
 
+    /**
+     * 到期日
+     * @param earningsDate
+     */
     public void setEarningsDate(Date earningsDate) {
         this.earningsDate = earningsDate;
     }
 
+    /**
+     * 预期收益
+     */
     public Double getEarningsLimit() {
+
+
+
+
         return earningsLimit;
     }
 
-    public void setEarningsLimit(Double earningsLimit) {
-        this.earningsLimit = earningsLimit;
+
+    public Product getProduct() {
+        return product;
+    }
+
+    /**
+     * 投资产品
+     * @param product
+     */
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Invest{" +
+                "id=" + id +
+                ", user=" + user +
+                ", product=" + product +
+                ", investLimit=" + investLimit +
+                ", investDate=" + investDate +
+                ", earningsDate=" + earningsDate +
+                ", earningsLimit=" + earningsLimit +
+                '}';
     }
 }
