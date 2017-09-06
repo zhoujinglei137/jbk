@@ -17,19 +17,12 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Annotation profile for jbk-commen" enabled="true">
+      <profile default="false" name="Annotation profile for jbk-manager-service" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="jbk-commen" />
-      </profile>
-      <profile default="false" name="Annotation profile for jbk-manager-dao" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="jbk-manager-dao" />
+        <module name="jbk-manager-service" />
       </profile>
       <profile default="false" name="Annotation profile for jbk-manager-interface" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
@@ -38,19 +31,19 @@
         <processorPath useClasspath="true" />
         <module name="jbk-manager-interface" />
       </profile>
-      <profile default="false" name="Annotation profile for jbk-manager-service" enabled="true">
+      <profile default="false" name="Annotation profile for jbk-manager-dao" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="jbk-manager-service" />
+        <module name="jbk-manager-dao" />
       </profile>
-      <profile default="false" name="Annotation profile for jbk-manager-pojo" enabled="true">
+      <profile default="false" name="Annotation profile for jbk-commen" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="jbk-manager-pojo" />
+        <module name="jbk-commen" />
       </profile>
       <profile default="false" name="Annotation profile for jbk-manager-web" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
@@ -59,8 +52,15 @@
         <processorPath useClasspath="true" />
         <module name="jbk-manager-web" />
       </profile>
+      <profile default="false" name="Annotation profile for jbk-manager-pojo" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jbk-manager-pojo" />
+      </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.7">
+    <bytecodeTargetLevel>
       <module name="jbk-commen" target="1.7" />
       <module name="jbk-manager" target="1.7" />
       <module name="jbk-manager-dao" target="1.7" />
