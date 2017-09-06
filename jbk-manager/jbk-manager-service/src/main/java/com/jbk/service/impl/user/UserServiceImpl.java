@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Login userLogin(Login login) {
-        return null;
+        Login user = loginDao.loginUser("123", "123");
+        return user;
     }
 }
