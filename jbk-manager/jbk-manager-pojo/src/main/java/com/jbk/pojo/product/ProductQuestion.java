@@ -15,7 +15,7 @@ public class ProductQuestion {
     /**
      * 所属类别
      */
-    @ManyToOne(targetEntity = ProductClass.class,fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = ProductClass.class,fetch = FetchType.EAGER)
     @JoinColumn(name ="pcid" )
     private ProductClass productClass;
     /**
