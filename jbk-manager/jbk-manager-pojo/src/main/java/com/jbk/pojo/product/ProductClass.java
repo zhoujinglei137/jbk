@@ -17,7 +17,7 @@ public class ProductClass {
     /**
      * 产品类别名称
      */
-    @Column(name = "product_class_name" )
+    @Column(name = "name" )
     private String productClassName;
     /**
      * 产品类别简介

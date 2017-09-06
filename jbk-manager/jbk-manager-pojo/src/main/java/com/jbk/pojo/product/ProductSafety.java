@@ -1,9 +1,6 @@
 package com.jbk.pojo.product;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by 方雷 on 2017/9/5.
@@ -15,10 +12,11 @@ public class ProductSafety {
     @Id
     private int id;
     /**
-     * 产品类别id
+     * 所属类别
      */
-    @Column(name = "pcid" )
-    private int pcid;
+    @ManyToOne(targetEntity = ProductClass.class,fetch = FetchType.EAGER)
+    @JoinColumn(name ="pcid" )
+    private ProductClass productClass;
     /**
      * 安全故障信息
      */
@@ -30,6 +28,16 @@ public class ProductSafety {
     @Column(name = "safety_solve" )
     private String safetySolve;
 
+    public ProductSafety() {
+    }
+
+    public ProductSafety(int id, ProductClass productClass, String safetyIntroduce, String safetySolve) {
+        this.id = id;
+        this.productClass = productClass;
+        this.safetyIntroduce = safetyIntroduce;
+        this.safetySolve = safetySolve;
+    }
+
     public int getId() {
         return id;
     }
@@ -38,12 +46,12 @@ public class ProductSafety {
         this.id = id;
     }
 
-    public int getPcid() {
-        return pcid;
+    public ProductClass getProductClass() {
+        return productClass;
     }
 
-    public void setPcid(int pcid) {
-        this.pcid = pcid;
+    public void setProductClass(ProductClass productClass) {
+        this.productClass = productClass;
     }
 
     public String getSafetyIntroduce() {
@@ -66,7 +74,7 @@ public class ProductSafety {
     public String toString() {
         return "ProductSafety{" +
                 "id=" + id +
-                ", pcid=" + pcid +
+                ", productClass=" + productClass +
                 ", safetyIntroduce='" + safetyIntroduce + '\'' +
                 ", safetySolve='" + safetySolve + '\'' +
                 '}';

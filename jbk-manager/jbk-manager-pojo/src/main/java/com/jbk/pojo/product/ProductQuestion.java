@@ -1,9 +1,6 @@
 package com.jbk.pojo.product;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by 方雷 on 2017/9/5.
@@ -16,10 +13,11 @@ public class ProductQuestion {
     @Id
     private int id;
     /**
-     * 产品类别id
+     * 所属类别
      */
-    @Column(name = "pcid" )
-    private int pcid;
+    @ManyToOne(targetEntity = ProductClass.class,fetch = FetchType.EAGER)
+    @JoinColumn(name ="pcid" )
+    private ProductClass productClass;
     /**
      * 常见问题
      */
@@ -30,6 +28,16 @@ public class ProductQuestion {
      */
     @Column(name = "solve" )
     private String solve;
+
+    public ProductQuestion() {
+    }
+
+    public ProductQuestion(int id, ProductClass productClass, String question, String solve) {
+        this.id = id;
+        this.productClass = productClass;
+        this.question = question;
+        this.solve = solve;
+    }
 
     public int getId() {
         return id;
@@ -51,25 +59,25 @@ public class ProductQuestion {
         return question;
     }
 
-    @Override
-    public String toString() {
-        return "ProductQuestion{" +
-                "id=" + id +
-                ", pcid=" + pcid +
-                ", question='" + question + '\'' +
-                ", solve='" + solve + '\'' +
-                '}';
-    }
-
     public void setQuestion(String question) {
         this.question = question;
     }
 
-    public int getPcid() {
-        return pcid;
+    public ProductClass getProductClass() {
+        return productClass;
     }
 
-    public void setPcid(int pcid) {
-        this.pcid = pcid;
+    public void setProductClass(ProductClass productClass) {
+        this.productClass = productClass;
+    }
+
+    @Override
+    public String toString() {
+        return "ProductQuestion{" +
+                "id=" + id +
+                ", productClass=" + productClass +
+                ", question='" + question + '\'' +
+                ", solve='" + solve + '\'' +
+                '}';
     }
 }
