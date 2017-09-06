@@ -2,10 +2,7 @@ package com.jbk.pojo.product;
 
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 /**
@@ -17,16 +14,18 @@ import java.util.Date;
 @Table(name = "tb_product")
 public class Product {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     /**
-     * 产品类别id
+     * 所属产品类别
      */
-    @Column(name = "pcid" )
-    private int pcid;
+    @ManyToOne(targetEntity = ProductClass.class,fetch = FetchType.EAGER)
+    @JoinColumn(name ="pcid" )
+    private ProductClass productClass;
     /**
      * 产品名称
      */
-    @Column(name = "product_name" )
+    @Column(name = "name" )
     private String productName;
     /**
      * 项目总额
@@ -74,20 +73,37 @@ public class Product {
     @Column(name = "trans_date" )
     private Date transDate;
 
+    public Product() {
+    }
+
+    public Product(ProductClass productClass, String productName, double itemlimit, String investDeadline, double yearYield, double spreadMargin, double getlimit, Date startDate, Date endDate, double startLimit, Date transDate) {
+        this.productClass = productClass;
+        this.productName = productName;
+        this.itemlimit = itemlimit;
+        this.investDeadline = investDeadline;
+        this.yearYield = yearYield;
+        this.spreadMargin = spreadMargin;
+        this.getlimit = getlimit;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.startLimit = startLimit;
+        this.transDate = transDate;
+    }
+
+    public ProductClass getProductClass() {
+        return productClass;
+    }
+
+    public void setProductClass(ProductClass productClass) {
+        this.productClass = productClass;
+    }
+
     public int getId() {
         return id;
     }
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getPcid() {
-        return pcid;
-    }
-
-    public void setPcid(int pcid) {
-        this.pcid = pcid;
     }
 
     public String getProductName() {
@@ -174,7 +190,7 @@ public class Product {
     public String toString() {
         return "Product{" +
                 "id=" + id +
-                ", pcid=" + pcid +
+                ", productClass=" + productClass +
                 ", productName='" + productName + '\'' +
                 ", itemlimit=" + itemlimit +
                 ", investDeadline='" + investDeadline + '\'' +
