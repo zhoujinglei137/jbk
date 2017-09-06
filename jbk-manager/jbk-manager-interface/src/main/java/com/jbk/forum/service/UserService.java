@@ -7,5 +7,4 @@ package com.jbk.forum.service;
 public interface UserService {
 
 
-
 }

@@ -1,7 +1,6 @@
 package com.jbk.service.impl.invest;
 
 import com.jbk.pojo.invest.Invest;
-import com.jbk.pojo.user.User;
 import com.jbk.service.invest.InvestService;
 import junit.framework.TestCase;
 import org.junit.Test;
@@ -25,10 +24,6 @@ public class InvestServiceImplTest extends TestCase {
     @Test
     public void testSave() throws Exception {
         Invest invest = new Invest();
-        User user = new User();
-        user.setId(1);
-        invest.setUser(user);
         investService.save(invest);
-
     }
 }
