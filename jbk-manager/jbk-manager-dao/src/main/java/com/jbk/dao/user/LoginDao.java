@@ -16,6 +16,6 @@ import java.io.Serializable;
 public interface LoginDao extends JpaRepository<Login, Serializable> {
 
 
-    @Query(value="select * from tb_login where login_name = ?1 and pass_word =?2 " ,nativeQuery=true)
+    @Query(value="select * from tb_login where login_name=?1 and pass_word =?2 " ,nativeQuery=true)
     Login loginUser(String loginuser,String password);
 }
