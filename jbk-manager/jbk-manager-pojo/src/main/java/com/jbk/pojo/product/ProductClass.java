@@ -6,7 +6,10 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 /**
- * Created by 方雷 on 2017/9/5.
+ * 创建人：方雷
+ * 项目名称：聚宝坑
+ * 功能:产品类别类
+ * 创建时间：  2017/9/5.
  */
 @SuppressWarnings("JpaDataSourceORMInspection")
 @Entity
@@ -17,7 +20,7 @@ public class ProductClass {
     /**
      * 产品类别名称
      */
-    @Column(name = "name" )
+    @Column(name = "name" ,unique =true)
     private String productClassName;
     /**
      * 产品类别简介
@@ -29,6 +32,15 @@ public class ProductClass {
      */
     @Column(name = "structure" )
     private String structure;
+
+    public ProductClass(String productClassName, String introduce, String structure) {
+        this.productClassName = productClassName;
+        this.introduce = introduce;
+        this.structure = structure;
+    }
+
+    public ProductClass() {
+    }
 
     public int getId() {
         return id;

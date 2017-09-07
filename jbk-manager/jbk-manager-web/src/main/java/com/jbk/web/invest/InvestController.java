@@ -33,7 +33,4 @@ public class InvestController {
 
         return null;
     }
-
-
-
 }

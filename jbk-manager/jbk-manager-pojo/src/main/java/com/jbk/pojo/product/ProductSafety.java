@@ -3,7 +3,10 @@ package com.jbk.pojo.product;
 import javax.persistence.*;
 
 /**
- * Created by 方雷 on 2017/9/5.
+ * 创建人：方雷
+ * 项目名称：聚宝坑
+ * 功能:产品安全信息类
+ * 创建时间：  2017/9/5.
  */
 @SuppressWarnings("JpaDataSourceORMInspection")
 @Entity
