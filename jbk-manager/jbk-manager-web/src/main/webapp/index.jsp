@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
@@ -87,17 +88,17 @@
       <div class="clearfix clear">
         <ul class="zscf_block1_text clearfix fl">
           <li>
-            <span class="block1_libg01">已加入中兴财富</span>
+            <span class="block1_libg01">已加入聚宝坑</span>
             <br>
             <em><strong>123123</strong>人</em>
           </li>
           <li>
-            <span class="block1_libg02">已加入中兴财富</span>
+            <span class="block1_libg02">已加入聚宝坑</span>
             <br>
             <em><strong>123123</strong>人</em>
           </li>
           <li>
-            <span class="block1_libg03">已加入中兴财富</span>
+            <span class="block1_libg03">已加入聚宝坑</span>
             <br>
             <em><strong>123123</strong>人</em>
           </li>
@@ -117,6 +118,40 @@
     </div>
 
     <!-- end block1 -->
+    <c:forEach items="${noobs}" var="noob" varStatus="i">
+    <div class="zscf_block2 mt30 clearfix ">
+      <div class="zscf_block2_l fl">
+        <div class="block2_biao clearfix">
+          <div class="clearfix">
+            <span class="fl">${productClass}【2132312】</span>
+            <div class="block2_biao_r fr">
+              <div class="tjxm_jindu ">
+
+                <div class="press_wper fl">
+                  <div class="press">
+
+                  </div>
+                </div>
+                <span class="fl">11%</span>
+              </div>
+            </div>
+          </div>
+          <ul class="clearfix clear block2_biao_ul">
+            <li>起投资金：<em>100元</em></li>
+            <li><img src="images/bao.png" alt="">年化收益：<strong>6+6<i>%</i></strong>
+            </li>
+            <li>
+              产品期限：<span>7天</span>
+            </li>
+            <li>
+              借款金额：<span>2000000元</span>
+            </li>
+            <li>
+              <a href="" class="invest_btn">立即投资</a>
+            </li>
+          </ul>
+        </div>
+    </c:forEach>
     <div class="zscf_block2 mt30 clearfix ">
       <div class="zscf_block2_l fl">
         <div class="block2_biao clearfix">
@@ -136,7 +171,7 @@
           </div>
           <ul class="clearfix clear block2_biao_ul">
             <li>起投资金：<em>100元</em></li>
-            <li><img src="images/bao.png" alt="">年华收益：<strong>6+6<i>%</i></strong>
+            <li><img src="images/bao.png" alt="">年化收益：<strong>6+6<i>%</i></strong>
             </li>
             <li>
               产品期限：<span>7天</span>
@@ -166,7 +201,7 @@
           </div>
           <ul class="clearfix clear block2_biao_ul">
             <li>起投资金：<em>100元</em></li>
-            <li><img src="images/bao.png" alt="">年华收益：<strong>6+6<i>%</i></strong>
+            <li><img src="images/bao.png" alt="">年化收益：<strong>6+6<i>%</i></strong>
             </li>
             <li>
               产品期限：<span>7天</span>
@@ -243,7 +278,7 @@
                 </div>
               </div>
               <ul class="clearfix proone_center_ul clear pt10">
-                <li>预计年华收益:<span>12.5%</span></li>
+                <li>预计年化收益:<span>12.5%</span></li>
                 <li>投资期限:<span>24个月</span></li>
                 <li>借款金额：<span>123122132元</span></li>
               </ul>
@@ -271,7 +306,7 @@
                 </div>
               </div>
               <ul class="clearfix proone_center_ul clear pt10">
-                <li>预计年华收益:<span>12.5%</span></li>
+                <li>预计年化收益:<span>12.5%</span></li>
                 <li>投资期限:<span>24个月</span></li>
                 <li>借款金额：<span>123122132元</span></li>
               </ul>
@@ -299,7 +334,7 @@
                 </div>
               </div>
               <ul class="clearfix proone_center_ul clear pt10">
-                <li>预计年华收益:<span>12.5%</span></li>
+                <li>预计年化收益:<span>12.5%</span></li>
                 <li>投资期限:<span>24个月</span></li>
                 <li>借款金额：<span>123122132元</span></li>
               </ul>
@@ -327,7 +362,7 @@
                 </div>
               </div>
               <ul class="clearfix proone_center_ul clear pt10">
-                <li>预计年华收益:<span>12.5%</span></li>
+                <li>预计年化收益:<span>12.5%</span></li>
                 <li>投资期限:<span>24个月</span></li>
                 <li>借款金额：<span>123122132元</span></li>
               </ul>
@@ -510,7 +545,7 @@
 
 <div class="zscf_bottom_wper">
   <div class="zscf_bottom px1000 clearfix">
-    <p class="fl">© 2014 zhongxincaifu &nbsp;  &nbsp;&nbsp;   中兴财富金融信息服务股份有限公司 &nbsp;&nbsp;&nbsp;    鄂ICP备14017254号-1</p>
+    <p class="fl">© 2014 zhongxincaifu &nbsp;  &nbsp;&nbsp;   聚宝坑金融信息服务股份有限公司 &nbsp;&nbsp;&nbsp;    鄂ICP备14017254号-1</p>
     <p class="fr">
       <a href=""><img src="images/360.png" alt=""></a>
       <a href=""><img src="images/kexin.png" alt=""></a>

@@ -4,6 +4,8 @@ import com.jbk.dto.InsertInvest;
 import com.jbk.pojo.invest.Invest;
 
 import com.jbk.pojo.user.User;
+import com.jbk.util.PageBean;
+import com.jbk.util.PageDto;
 
 
 /**
@@ -23,5 +25,8 @@ public interface InvestService {
     */
    Invest save(User user,InsertInvest invest);
 
+   PageBean<Invest> listInvest(PageDto pageDto,User user);
+
+   Invest findOne(Invest invest);
 
 }

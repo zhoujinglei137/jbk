@@ -1,12 +1,6 @@
 package com.jbk.web.user;
 
-import com.jbk.pojo.user.Login;
-import com.jbk.pojo.user.User;
-import com.jbk.service.user.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * 作者 ： 周京磊
@@ -17,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  */
 @Controller
 public class UserController {
-    @Autowired
+  /*  @Autowired
     private UserService userService;
 
     @RequestMapping("/registeruser")
@@ -26,5 +20,5 @@ public class UserController {
         System.err.println("user:"+user+";login"+login);
         System.err.println("1234567890-1234567890");
         return "login";
-    }
+    }*/
 }
