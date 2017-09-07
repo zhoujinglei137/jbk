@@ -33,15 +33,17 @@ public class UserServiceImpl implements UserService {
     @Override
     public User userRegister(User user, Login login) {
         System.out.println("1234567");
-        User save = userDao.save(user);
+        //User save = userDao.save(user);
        // login.setId(save.getId());
        // Login save1 = loginDao.save(login);
        // System.err.println("user:"+user+";login:"+save1);
-        return save;
+        return null;
     }
 
     @Override
     public Login userLogin(Login login) {
-        return null;
+
+        loginDao.loginUser("1","2");
+        return  null;
     }
 }
