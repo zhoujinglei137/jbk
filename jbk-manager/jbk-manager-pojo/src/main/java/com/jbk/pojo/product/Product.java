@@ -6,11 +6,9 @@ import javax.persistence.*;
 import java.util.Date;
 
 /**
- * 创建人：方雷
- * 项目名称：聚宝坑
- * 功能:产品类
- * 创建时间：  2017/9/5.
+ * Created by 方雷 on 2017/9/5.
  */
+
 @SuppressWarnings("JpaDataSourceORMInspection")
 @Entity
 @Table(name = "tb_product")
@@ -21,7 +19,7 @@ public class Product {
     /**
      * 所属产品类别
      */
-    @OneToOne(targetEntity = ProductClass.class,fetch = FetchType.EAGER)
+    @ManyToOne(targetEntity = ProductClass.class,fetch = FetchType.EAGER)
     @JoinColumn(name ="pcid" )
     private ProductClass productClass;
     /**
@@ -38,7 +36,7 @@ public class Product {
      * 投资期限
      */
     @Column(name = "invest_deadline" )
-    private int  investDeadline;
+    private String investDeadline;
     /**
      * 年收益率
      */
@@ -78,7 +76,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(ProductClass productClass, String productName, double itemlimit, int investDeadline, double yearYield, double spreadMargin, double getlimit, Date startDate, Date endDate, double startLimit, Date transDate) {
+    public Product(ProductClass productClass, String productName, double itemlimit, String investDeadline, double yearYield, double spreadMargin, double getlimit, Date startDate, Date endDate, double startLimit, Date transDate) {
         this.productClass = productClass;
         this.productName = productName;
         this.itemlimit = itemlimit;
@@ -124,11 +122,11 @@ public class Product {
         this.itemlimit = itemlimit;
     }
 
-    public int getInvestDeadline() {
+    public String getInvestDeadline() {
         return investDeadline;
     }
 
-    public void setInvestDeadline(int investDeadline) {
+    public void setInvestDeadline(String investDeadline) {
         this.investDeadline = investDeadline;
     }
 
@@ -190,7 +188,7 @@ public class Product {
 
     @Override
     public String toString() {
-        return "VProduct{" +
+        return "Product{" +
                 "id=" + id +
                 ", productClass=" + productClass +
                 ", productName='" + productName + '\'' +
