@@ -13,5 +13,4 @@ import java.io.Serializable;
 
 public interface InvestDao extends JpaRepository<Invest,Serializable> {
 
-
 }

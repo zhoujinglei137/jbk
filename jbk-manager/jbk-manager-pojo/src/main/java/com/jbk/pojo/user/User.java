@@ -18,7 +18,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     /**
      * 用户名
      */
@@ -28,22 +28,22 @@ public class User {
      * 余额
      */
     @Column(name = "balance")
-    private int balance;
+    private Double balance;
     /**
      * 会员等级
      */
     @Column(name = "lv")
-    private int lv;
+    private Integer lv;
     /**
      * 积分数
      */
     @Column(name = "jf")
-    private int jf;
+    private Integer jf;
     /**
      * 身份证号
      */
     @Column(name = "cardId")
-    private int cardId;
+    private Integer cardId;
     /**
      * 生日
      */
@@ -53,12 +53,12 @@ public class User {
      * 手机号
      */
     @Column(name = "tel")
-    private int tel1;
+    private Integer tel1;
     /**
      * 紧急联系人
      */
     @Column(name = "tel2")
-    private int tel2;
+    private Integer tel2;
     /**
      * 邮箱
      */
@@ -68,19 +68,19 @@ public class User {
      * 电话绑定状态
      */
     @Column(name = "tel_state")
-    private int telState;
+    private Integer telState;
 
     /**
      * 邮箱绑定状态
      */
     @Column(name = "email_state")
-    private int emailState;
+    private Integer emailState;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -92,35 +92,35 @@ public class User {
         this.userName = userName;
     }
 
-    public int getBalance() {
+    public Double getBalance() {
         return balance;
     }
 
-    public void setBalance(int balance) {
+    public void setBalance(Double balance) {
         this.balance = balance;
     }
 
-    public int getLv() {
+    public Integer getLv() {
         return lv;
     }
 
-    public void setLv(int lv) {
+    public void setLv(Integer lv) {
         this.lv = lv;
     }
 
-    public int getJf() {
+    public Integer getJf() {
         return jf;
     }
 
-    public void setJf(int jf) {
+    public void setJf(Integer jf) {
         this.jf = jf;
     }
 
-    public int getCardId() {
+    public Integer getCardId() {
         return cardId;
     }
 
-    public void setCardId(int cardId) {
+    public void setCardId(Integer cardId) {
         this.cardId = cardId;
     }
 
@@ -132,19 +132,19 @@ public class User {
         this.birthday = birthday;
     }
 
-    public int getTel1() {
+    public Integer getTel1() {
         return tel1;
     }
 
-    public void setTel1(int tel1) {
+    public void setTel1(Integer tel1) {
         this.tel1 = tel1;
     }
 
-    public int getTel2() {
+    public Integer getTel2() {
         return tel2;
     }
 
-    public void setTel2(int tel2) {
+    public void setTel2(Integer tel2) {
         this.tel2 = tel2;
     }
 
@@ -156,37 +156,19 @@ public class User {
         this.email = email;
     }
 
-    public int getTelState() {
+    public Integer getTelState() {
         return telState;
     }
 
-    public void setTelState(int telState) {
+    public void setTelState(Integer telState) {
         this.telState = telState;
     }
 
-    public int getEmailState() {
+    public Integer getEmailState() {
         return emailState;
     }
 
-    public void setEmailState(int emailState) {
+    public void setEmailState(Integer emailState) {
         this.emailState = emailState;
-    }
-
-    @Override
-    public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", balance=" + balance +
-                ", lv=" + lv +
-                ", jf=" + jf +
-                ", cardId=" + cardId +
-                ", birthday=" + birthday +
-                ", tel1=" + tel1 +
-                ", tel2=" + tel2 +
-                ", email='" + email + '\'' +
-                ", telState=" + telState +
-                ", emailState=" + emailState +
-                '}';
     }
 }
