@@ -15,4 +15,6 @@ import java.io.Serializable;
 public interface UserAdminDao extends JpaRepository<UserAdmin,Serializable>{
     @Query(nativeQuery = true,value = "select count(1) from tb_admin")
     long getCount();
+
+
 }

@@ -1,6 +1,8 @@
 package com.jbk.web.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * 作者 ： 周京磊
@@ -11,13 +13,14 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class HelloController {
-   /* @RequestMapping("/")
+    @RequestMapping("/")
     public String test1(){
         return "login";
     }
+
     @RequestMapping("/{jn}")
     public String test2(@PathVariable("jn") String jn){
         System.out.println("经过了："+jn);
         return jn;
-    }*/
+    }
 }

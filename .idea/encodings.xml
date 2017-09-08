@@ -12,6 +12,10 @@
     <file url="file://$PROJECT_DIR$/jbk-manager/jbk-manager-pojo" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jbk-manager/jbk-manager-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jbk-manager/jbk-manager-web" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/jbk-manager/jbk-manager-web/src/main/webapp/images/lg_bg01.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/jbk-manager/jbk-manager-web/src/main/webapp/images/lg_email.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/jbk-manager/jbk-manager-web/src/main/webapp/images/reg_bg01.png" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/jbk-manager/jbk-manager-web/src/main/webapp/images/zxcf_logo.png" charset="GBK" />
     <file url="file://$PROJECT_DIR$/jbk-parent" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
