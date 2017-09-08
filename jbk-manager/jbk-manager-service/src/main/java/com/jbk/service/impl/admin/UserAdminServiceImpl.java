@@ -1,6 +1,6 @@
 package com.jbk.service.impl.admin;
 
-import com.jbk.admin.vo.service.UserAdminService;
+import com.jbk.admin.service.UserAdminService;
 import com.jbk.dao.admin.UserAdminDao;
 import com.jbk.pojo.admin.UserAdmin;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +36,11 @@ public class UserAdminServiceImpl implements UserAdminService{
     public long count() {
         return userAdminDao.getCount();
     }
+    @Transactional
+    @Override
+    public int deleteMany(long[] ids) {
+        return userAdminDao.deleteMany(ids);
+    }
+
 
 }

@@ -21,16 +21,19 @@ public class GCAndGB {
     /**
      * gbid:礼包主键id
      */
-    @Column(name="gbid")
-    private int gbid;
+    @JoinColumn(name="gbid")
+    @ManyToOne(targetEntity = GiftBag.class,fetch = FetchType.EAGER)
+    private GiftBag giftBag;
     /**
      * gcid:礼券主键id
      */
-    @Column(name="gcid")
-    private int gcid;
+    @JoinColumn(name="gcid")
+    @ManyToOne(targetEntity = GiftCertificate.class,fetch = FetchType.EAGER)
+    private GiftCertificate giftCertificate;
     /**
      * gcid:等级主键id
      */
-    @Column(name="lvid")
+    @JoinColumn(name="lvid")
+    @ManyToOne(targetEntity = GiftCertificate.class,fetch = FetchType.EAGER)
     private int lvid;
 }

@@ -18,7 +18,7 @@
 </head>
 <body class="easyui-layout">
 <div data-options="region:'north'" style="height:70px;padding-left:10px;">
-  <h2>天天小商城后台管理系统</h2>
+  <h2>聚宝坑管理系统</h2>
 </div>
 <div data-options="region:'south'" style="padding:5px;background:#eee;">
   系统版本:V2.0

@@ -1,4 +1,4 @@
-package com.jbk.admin.vo.service;
+package com.jbk.admin.service;
 
 import com.jbk.pojo.admin.UserAdmin;
 
@@ -27,9 +27,17 @@ public interface UserAdminService {
     List<UserAdmin> findAll();
     /**
      * 需要参数：无
-     *  返回参数：UserAdmin类型的集合
-     * 功能:查询所有记录
+     *  返回参数：long
+     * 功能:查询有多少条记录
      * 创建时间：  2017/9/6.
      */
     long count();
+    /**
+     * 需要参数：无
+     *  返回参数：int
+     * 功能:删除一个ids数组的管理员
+     * 创建时间：  2017/9/6.
+     */
+    int deleteMany(long[] ids);
+
 }
