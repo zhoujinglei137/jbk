@@ -1,6 +1,7 @@
 package com.jbk.service.impl.admin;
 
 import com.jbk.admin.service.UserAdminService;
+import com.jbk.admin.vo.Result;
 import com.jbk.dao.admin.UserAdminDao;
 import com.jbk.pojo.admin.UserAdmin;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
-import java.util.List;
 
 /**
  * 创建人：姚鹏
@@ -28,8 +28,12 @@ public class UserAdminServiceImpl implements UserAdminService{
 
     @Transactional
     @Override
-    public List<UserAdmin> findAll() {
-        return userAdminDao.findAll();
+    public Result<UserAdmin> findAll() {
+        Result<UserAdmin> result = new Result<>();
+        result.setRows(userAdminDao.findAll());
+        result.setTotal(userAdminDao.getCount());
+        result.setUrl("admins");
+        return result;
     }
 
     @Override

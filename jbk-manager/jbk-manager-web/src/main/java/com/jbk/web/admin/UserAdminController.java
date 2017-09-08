@@ -34,11 +34,7 @@ public class UserAdminController {
     @RequestMapping("admins")
     @ResponseBody
     public Result showByPage(){
-        Result<UserAdmin> result = new Result<>();
-        result.setRows(userAdminService.findAll());
-        result.setTotal(userAdminService.count());
-        result.setUrl("admins");
-        return result;
+        return userAdminService.findAll();
     }
     @RequestMapping("adminadd")
     @ResponseBody

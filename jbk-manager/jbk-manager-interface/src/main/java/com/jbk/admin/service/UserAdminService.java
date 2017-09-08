@@ -1,8 +1,7 @@
 package com.jbk.admin.service;
 
+import com.jbk.admin.vo.Result;
 import com.jbk.pojo.admin.UserAdmin;
-
-import java.util.List;
 
 /**
  * 创建人：姚鹏
@@ -24,7 +23,7 @@ public interface UserAdminService {
      * 功能:查询所有记录
      * 创建时间：  2017/9/6.
      */
-    List<UserAdmin> findAll();
+    Result<UserAdmin> findAll();
     /**
      * 需要参数：无
      *  返回参数：long
