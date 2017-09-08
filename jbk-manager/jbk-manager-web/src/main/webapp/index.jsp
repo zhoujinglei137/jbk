@@ -35,9 +35,21 @@
       <a href=""><img src="images/zxcf_qq.png" alt=""></a>
     </div>
     <div class="zxcf_top_r fr">
-      <a href="" class="curspan">立即登录</a>
-      <span>|</span>
-      <a href="">免费注册</a>
+
+      <c:choose>
+        <c:when test="${sessionScope.user_login.loginName == null}">
+          <a href="loginjbk.jsp" class="curspan">立即登录</a>
+          <span>|</span>
+          <a href="register.jsp">免费注册</a>
+        </c:when>
+        <c:otherwise>
+          <font color="red" size="2">你好，${sessionScope.user_login.loginName}用户</font>
+          <span>|</span>
+          <a href="logout">注销</a>
+        </c:otherwise>
+      </c:choose>
+
+
       <span>|</span>
       <a href="">常见问题</a>
     </div>

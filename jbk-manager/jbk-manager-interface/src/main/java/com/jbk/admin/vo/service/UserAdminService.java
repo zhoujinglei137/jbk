@@ -1,5 +1,6 @@
 package com.jbk.admin.vo.service;
 
+import com.jbk.pojo.admin.Letter;
 import com.jbk.pojo.admin.UserAdmin;
 
 import java.util.List;
@@ -32,4 +33,5 @@ public interface UserAdminService {
      * 创建时间：  2017/9/6.
      */
     long count();
+
 }
