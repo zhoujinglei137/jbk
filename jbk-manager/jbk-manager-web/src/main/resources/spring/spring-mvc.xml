@@ -34,6 +34,5 @@
     <mvc:resources mapping="/js/**" location="/js/"/>
     <mvc:resources mapping="/css/**" location="/css/"/>
     <mvc:resources mapping="/images/**" location="/images/"/>
-    <mvc:resources mapping="/index/**" location="/index/"/>
 
 </beans>
