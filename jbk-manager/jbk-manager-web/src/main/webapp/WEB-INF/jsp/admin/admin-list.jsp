@@ -39,6 +39,7 @@
 <script>
   $('#dg').datagrid({
     url:"admins",
+    toolbar:"#toolbar",
     pagination: true,
     rownumbers:true,//显示行数
     pageSize:10,//显示数据量
@@ -52,9 +53,6 @@
       {field:'sort',title:'类别'},
     ]]
   });
-
-
 </script>
-
 </body>
 </html>

@@ -20,7 +20,7 @@ import java.util.Date;
 @Service
 @Scope("prototype")
 public class InvestServiceImpl implements InvestService {
-
+    @SuppressWarnings("SpringJavaAutowiringInspection")
     @Autowired
     private InvestDao investDao;
 
@@ -46,10 +46,6 @@ public class InvestServiceImpl implements InvestService {
         if (invest != null) {
             user.setJf((int) insertInvest.getInvestLimit());
         }
-
-
-
-
 
         return invest;
     }

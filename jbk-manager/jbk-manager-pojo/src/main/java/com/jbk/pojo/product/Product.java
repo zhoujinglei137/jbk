@@ -15,7 +15,7 @@ import java.util.Date;
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     /**
      * 所属产品类别
      */
@@ -31,27 +31,27 @@ public class Product {
      * 项目总额
      */
     @Column(name = "itemlimit" )
-    private double itemlimit;
+    private Double itemlimit;
     /**
      * 投资期限
      */
     @Column(name = "invest_deadline" )
-    private String investDeadline;
+    private Integer investDeadline;
     /**
      * 年收益率
      */
     @Column(name = "year_yield" )
-    private double yearYield;
+    private Double yearYield;
     /**
      * 加息率
      */
     @Column(name = "spread_margin" )
-    private double spreadMargin;
+    private Double spreadMargin;
     /**
      * 获得总额
      */
     @Column(name = "getlimit" )
-    private double getlimit;
+    private Double getlimit;
     /**
      * 开投日期
      */
@@ -66,7 +66,7 @@ public class Product {
      * 起投金额
      */
     @Column(name = "start_limit" )
-    private double startLimit;
+    private Double startLimit;
     /**
      * 转让日期
      */
@@ -76,7 +76,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(ProductClass productClass, String productName, double itemlimit, String investDeadline, double yearYield, double spreadMargin, double getlimit, Date startDate, Date endDate, double startLimit, Date transDate) {
+    public Product(ProductClass productClass, String productName, Double itemlimit, Integer investDeadline, Double yearYield, Double spreadMargin, Double getlimit, Date startDate, Date endDate, Double startLimit, Date transDate) {
         this.productClass = productClass;
         this.productName = productName;
         this.itemlimit = itemlimit;
@@ -98,11 +98,11 @@ public class Product {
         this.productClass = productClass;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -114,43 +114,43 @@ public class Product {
         this.productName = productName;
     }
 
-    public double getItemlimit() {
+    public Double getItemlimit() {
         return itemlimit;
     }
 
-    public void setItemlimit(double itemlimit) {
+    public void setItemlimit(Double itemlimit) {
         this.itemlimit = itemlimit;
     }
 
-    public String getInvestDeadline() {
+    public Integer getInvestDeadline() {
         return investDeadline;
     }
 
-    public void setInvestDeadline(String investDeadline) {
+    public void setInvestDeadline(Integer investDeadline) {
         this.investDeadline = investDeadline;
     }
 
-    public double getYearYield() {
+    public Double getYearYield() {
         return yearYield;
     }
 
-    public void setYearYield(double yearYield) {
+    public void setYearYield(Double yearYield) {
         this.yearYield = yearYield;
     }
 
-    public double getSpreadMargin() {
+    public Double getSpreadMargin() {
         return spreadMargin;
     }
 
-    public void setSpreadMargin(double spreadMargin) {
+    public void setSpreadMargin(Double spreadMargin) {
         this.spreadMargin = spreadMargin;
     }
 
-    public double getGetlimit() {
+    public Double getGetlimit() {
         return getlimit;
     }
 
-    public void setGetlimit(double getlimit) {
+    public void setGetlimit(Double getlimit) {
         this.getlimit = getlimit;
     }
 
@@ -170,11 +170,11 @@ public class Product {
         this.endDate = endDate;
     }
 
-    public double getStartLimit() {
+    public Double getStartLimit() {
         return startLimit;
     }
 
-    public void setStartLimit(double startLimit) {
+    public void setStartLimit(Double startLimit) {
         this.startLimit = startLimit;
     }
 
