@@ -128,7 +128,7 @@
                           	  <input type="text" placeholder="100">
                           </p>
                           <p class="det_shouyi">每投资1万元收益<strong>183.33元</strong></p>
-                          <p><a href="" class=" pro_btn det_btn">立即投资</a></p>
+                          <p><a href="#" onclick="save();" class=" pro_btn det_btn">立即投资</a></p>
 	  	     	    </div>
 	  	     </div>
 	  	     <!-- end block1 -->
@@ -568,5 +568,26 @@
 	</div>
 </div>
 <!-- footer end -->
+<script>
+	function save(){
+		$.ajax({
+			url:"Invest/save",
+			type:"post",
+			data:{
+				'pid':1,
+				'InvestLimit':100,
+				'TimeLimit':90
+			},
+			success:function(data){
+				if(data == 'true'){
+					window.location=;
+				}
+			}
+
+
+
+		});
+	}
+</script>
 </body>
 </html>

@@ -17,6 +17,7 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 @Scope("prototype")
+@RequestMapping("/Invest")
 public class InvestController {
 
     @Autowired
@@ -26,13 +27,14 @@ public class InvestController {
      * 增加一条投资记录
      * @return
      */
-    @RequestMapping(value = "/Invest",method = RequestMethod.POST)
+    @RequestMapping(value = "/Invest/save",method = RequestMethod.POST)
     public String saveInvest(HttpSession session,InsertInvest invest){
         User user = (User) session.getAttribute("user");
         service.save(user,invest);
-
-        return null;
+        return "pay";
     }
+
+
 
 
 

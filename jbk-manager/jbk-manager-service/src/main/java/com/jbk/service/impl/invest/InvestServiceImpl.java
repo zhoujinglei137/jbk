@@ -47,6 +47,7 @@ public class InvestServiceImpl implements InvestService {
         Product product = new Product();
         product.setId(insertInvest.getPid());
         invest.setProduct(product);
+        invest.setStats(0);
         invest=investDao.save(invest);
         if (invest != null) {
             user.setJf((int) insertInvest.getInvestLimit());

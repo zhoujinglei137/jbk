@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="Encoding">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
     <file url="file://$PROJECT_DIR$/jbk-commen" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jbk-commen/src/main/java/com/jbk/admin/vo/Order.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/jbk-commen/src/main/java/com/jbk/admin/vo/Page.java" charset="GBK" />
@@ -13,5 +13,6 @@
     <file url="file://$PROJECT_DIR$/jbk-manager/jbk-manager-service" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jbk-manager/jbk-manager-web" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/jbk-parent" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

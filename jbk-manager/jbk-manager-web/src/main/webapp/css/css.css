@@ -16,8 +16,8 @@
 
 /*========== head ==========*/
 .head{ height:100px; background:#FFF; border-bottom:1px solid #e7e7e7; box-shadow:1px 1px 5px #ececec;}
-.head .logo{ display:block; width:214px; height:70px; margin:15px 30px 0 0; background:url(../images/logo.png) no-repeat center; float:left;}
-.head .adtxt{ float:left; width:245px; height:50px; background:url(../images/ad.png) no-repeat center; margin:38px 0 0;}
+.head .logo{ display:block; width:214px; height:70px; margin:15px 30px 0 0; background:url(../images/zxcf_logo.png) no-repeat center; float:left;}
+.head .adtxt{ float:left; width:245px; height:50px; background:url(../images/zxcf_logo.png) no-repeat center; margin:38px 0 0;}
 .nav{ float:right; width:465px; margin:38px 0 0;}
 .nav li{ float:left; font-size:20px; height:24px; padding-left:46px;}
 .nav a:hover,.nav li.active a{ color:#C00; text-decoration:none;}
