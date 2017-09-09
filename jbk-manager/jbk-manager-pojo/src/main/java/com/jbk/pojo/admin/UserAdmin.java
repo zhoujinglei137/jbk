@@ -17,7 +17,7 @@ public class UserAdmin {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;//主键
+    private Integer id;//主键
     /**
      * login_name:登录名
      */
@@ -37,13 +37,13 @@ public class UserAdmin {
      * sort:类别
      */
     @Column(name = "sort")
-    private int sort;//类别
+    private Integer sorts;//类别
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -71,11 +71,11 @@ public class UserAdmin {
         this.userName = userName;
     }
 
-    public int getSort() {
-        return sort;
+    public Integer getSorts() {
+        return sorts;
     }
 
-    public void setSort(int sort) {
-        this.sort = sort;
+    public void setSorts(Integer sorts) {
+        this.sorts = sorts;
     }
 }

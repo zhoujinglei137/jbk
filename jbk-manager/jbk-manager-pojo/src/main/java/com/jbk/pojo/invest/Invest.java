@@ -24,17 +24,33 @@ public class Invest {
     /**
      * 投资人
      */
-    @OneToOne(targetEntity = User.class,fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = User.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "uid")
     private User user;
 
+    public int getStats() {
+        return stats;
+    }
+
+    public void setStats(int stats) {
+        this.stats = stats;
+    }
+
+    public void setEarningsLimit(Double earningsLimit) {
+        this.earningsLimit = earningsLimit;
+    }
+
+    /**
+     * 状态码 状态（0/1/2/3/4）代付，已付，删除，正获利，可转让
+     */
+    @Column(name = "stats")
+    private int stats;
     /**
      * 投资产品
      */
-    @OneToOne(targetEntity = Product.class,fetch = FetchType.EAGER)
+    @OneToOne(targetEntity = Product.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "pid")
     private Product product;
-
 
 
     /**
@@ -67,6 +83,7 @@ public class Invest {
 
     /***
      * 主键
+     *
      * @param id
      */
     public void setId(Long id) {
@@ -80,6 +97,7 @@ public class Invest {
 
     /***
      * 投资人
+     *
      * @return
      */
     public void setUser(User user) {
@@ -92,6 +110,7 @@ public class Invest {
 
     /**
      * 投资金额
+     *
      * @param investLimit
      */
     public void setInvestLimit(Double investLimit) {
@@ -104,6 +123,7 @@ public class Invest {
 
     /**
      * 投资日期
+     *
      * @param investDate
      */
     public void setInvestDate(Date investDate) {
@@ -116,6 +136,7 @@ public class Invest {
 
     /**
      * 到期日
+     *
      * @param earningsDate
      */
     public void setEarningsDate(Date earningsDate) {
@@ -128,8 +149,6 @@ public class Invest {
     public Double getEarningsLimit() {
 
 
-
-
         return earningsLimit;
     }
 
@@ -140,6 +159,7 @@ public class Invest {
 
     /**
      * 投资产品
+     *
      * @param product
      */
     public void setProduct(Product product) {

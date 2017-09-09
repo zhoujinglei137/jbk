@@ -18,7 +18,7 @@
 </head>
 <body class="easyui-layout">
 <div data-options="region:'north'" style="height:70px;padding-left:10px;">
-  <h2>天天小商城后台管理系统</h2>
+  <h2>聚宝坑管理系统</h2>
 </div>
 <div data-options="region:'south'" style="padding:5px;background:#eee;">
   系统版本:V2.0
@@ -29,7 +29,7 @@
       <ul class="easyui-tree">
         <li data-options="attributes:{'href':'admin/admin-add'}">新增管理</li>
         <li data-options="attributes:{'href':'admin/admin-list'}">查询管理员</li>
-        <li data-options="attributes:{'href':'admin/admin-param-list'}">管理员信息</li>
+        <li data-options="attributes:{'href':'admin/admin-update'}">管理员信息</li>
       </ul>
     </div>
     <div title="网站内容管理" style="padding:10px 0;">
