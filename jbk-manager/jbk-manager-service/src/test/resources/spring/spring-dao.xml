@@ -57,7 +57,7 @@
                 <prop key="hibernate.format_sql">true</prop>
                 <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
-                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL57InnoDBDialect</prop>
             </props>
         </property>
 
@@ -74,6 +74,6 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!--配置spring data-->
-    <jpa:repositories base-package="com.jbk" entity-manager-factory-ref="entityManagerFactory"/>
+    <jpa:repositories base-package="com.jbk" entity-manager-factory-ref="entityManagerFactory" query-lookup-strategy="create-if-not-found" transaction-manager-ref="transactionManager"/>
 
 </beans>

@@ -1,6 +1,10 @@
 package com.jbk.admin.service;
 
+<<<<<<< HEAD:jbk-manager/jbk-manager-interface/src/main/java/com/jbk/admin/service/UserAdminService.java
 import com.jbk.admin.vo.Result;
+=======
+import com.jbk.pojo.admin.Letter;
+>>>>>>> origin/master:jbk-manager/jbk-manager-interface/src/main/java/com/jbk/admin/vo/service/UserAdminService.java
 import com.jbk.pojo.admin.UserAdmin;
 
 /**
@@ -31,6 +35,7 @@ public interface UserAdminService {
      * 创建时间：  2017/9/6.
      */
     long count();
+<<<<<<< HEAD:jbk-manager/jbk-manager-interface/src/main/java/com/jbk/admin/service/UserAdminService.java
     /**
      * 需要参数：无
      *  返回参数：int
@@ -38,5 +43,7 @@ public interface UserAdminService {
      * 创建时间：  2017/9/6.
      */
     int deleteMany(long[] ids);
+=======
+>>>>>>> origin/master:jbk-manager/jbk-manager-interface/src/main/java/com/jbk/admin/vo/service/UserAdminService.java
 
 }

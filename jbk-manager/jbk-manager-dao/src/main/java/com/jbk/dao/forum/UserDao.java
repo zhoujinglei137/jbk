@@ -2,6 +2,7 @@ package com.jbk.dao.forum;
 
 import com.jbk.pojo.forum.User;
 import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 
@@ -11,6 +12,7 @@ import java.io.Serializable;
  *
  *
  */
+@Repository("uDao")
 public interface UserDao extends CrudRepository<User,Serializable> {
 
 

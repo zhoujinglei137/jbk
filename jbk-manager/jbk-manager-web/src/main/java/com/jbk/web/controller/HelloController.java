@@ -17,6 +17,7 @@ public class HelloController {
     public String test1(){
         return "login";
     }
+
     @RequestMapping("/{jn}")
     public String test2(@PathVariable("jn") String jn){
         System.out.println("经过了："+jn);

@@ -2,7 +2,6 @@ package com.jbk.dao.user;
 
 import com.jbk.pojo.user.Login;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 
 import java.io.Serializable;
 
@@ -16,6 +15,11 @@ import java.io.Serializable;
 public interface LoginDao extends JpaRepository<Login, Serializable> {
 
 
-    @Query(value="select * from tb_login where login_name=?1 and pass_word =?2 " ,nativeQuery=true)
-    Login loginUser(String loginuser,String password);
+    /*@Query(value="select * from tb_login where login_name=?1 and pass_word =?2 " ,nativeQuery=true)
+    Login loginUser(String loginuser,String password);*/
+
+
+    Login findByLoginNameAndPassWord(String loginName,String password);
+
+    Login findByLoginName(String name);
 }

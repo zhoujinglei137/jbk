@@ -4,23 +4,23 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta author="zrong.me æ›¾è£">
-  <title>ç™»å½• - èšå®å‘ - Thousands Find</title>
+  <meta author="zrong.me ÔøÈÙ">
+  <title>µÇÂ¼ - ¾Û±¦¿Ó - Thousands Find</title>
   <link rel="stylesheet" type="text/css" href="css/register-login.css">
 </head>
 <body>
 <div id="box"></div>
 <div class="cent-box">
   <div class="cent-box-header">
-    <h1 class="main-title hide">èšå®å‘</h1>
-    <h2 class="sub-title">ç”Ÿæ´»å®ˆä¸ä¿¡åˆ©äºæ°‘ - Thousands Find</h2>
+    <h1 class="main-title hide">¾Û±¦¿Ó</h1>
+    <h2 class="sub-title">Éú»îÊØÓëĞÅÀûÓÚÃñ - Thousands Find</h2>
   </div>
 
   <div class="cont-main clearfix">
     <div class="index-tab">
       <div class="index-slide-nav">
-        <a href="login" class="active">ç™»å½•</a>
-        <a href="register">æ³¨å†Œ</a>
+        <a href="login" class="active">µÇÂ¼</a>
+        <a href="register">×¢²á</a>
         <div class="slide-bar"></div>
       </div>
     </div>
@@ -28,33 +28,33 @@
     <div class="login form">
       <div class="group">
         <div class="group-ipt email">
-          <input type="text" name="email" id="email" class="ipt" placeholder="é‚®ç®±åœ°å€" required>
+          <input type="text" name="email" id="email" class="ipt" placeholder="ÓÊÏäµØÖ·" required>
         </div>
         <div class="group-ipt password">
-          <input type="password" name="password" id="password" class="ipt" placeholder="è¾“å…¥æ‚¨çš„ç™»å½•å¯†ç " required>
+          <input type="password" name="password" id="password" class="ipt" placeholder="ÊäÈëÄúµÄµÇÂ¼ÃÜÂë" required>
         </div>
         <div class="group-ipt verify">
-          <input type="text" name="verify" id="verify" class="ipt" placeholder="è¾“å…¥éªŒè¯ç " required>
+          <input type="text" name="verify" id="verify" class="ipt" placeholder="ÊäÈëÑéÖ¤Âë" required>
           <img src="images/a.jpg" class="imgcode">
         </div>
       </div>
     </div>
 
     <div class="button">
-      <button type="submit" class="login-btn register-btn" id="button">ç™»å½•</button>
+      <button type="submit" class="login-btn register-btn" id="button">µÇÂ¼</button>
     </div>
 
     <div class="remember clearfix">
-      <label class="remember-me"><span class="icon"><span class="zt"></span></span><input type="checkbox" name="remember-me" id="remember-me" class="remember-mecheck" checked>è®°ä½æˆ‘</label>
+      <label class="remember-me"><span class="icon"><span class="zt"></span></span><input type="checkbox" name="remember-me" id="remember-me" class="remember-mecheck" checked>¼Ç×¡ÎÒ</label>
       <label class="forgot-password">
-        <a href="#">å¿˜è®°å¯†ç ï¼Ÿ</a>
+        <a href="#">Íü¼ÇÃÜÂë£¿</a>
       </label>
     </div>
   </div>
 </div>
 
 <div class="footer">
-  <p>èšå®å‘ - Thousands Find</p>
+  <p>¾Û±¦¿Ó - Thousands Find</p>
   <p>Designed By ZengRong & <a href="zrong.me">mycodes.net</a> 2016</p>
 </div>
 
@@ -65,7 +65,7 @@
 <script src='js/index.js' type="text/javascript"></script>
 <script>
   $('.imgcode').hover(function(){
-    layer.tips("çœ‹ä¸æ¸…ï¼Ÿç‚¹å‡»æ›´æ¢", '.verify', {
+    layer.tips("¿´²»Çå£¿µã»÷¸ü»»", '.verify', {
       time: 6000,
       tips: [2, "#3c3c3c"]
     })
