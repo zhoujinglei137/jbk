@@ -9,7 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 作者 ： 周京磊
@@ -41,9 +43,28 @@ public class UserController {
     }
 
     @RequestMapping("/loginuser")
-    public String  test3(Login login,HttpServletRequest request){
-        System.err.println("login"+login);
+    public String  test3(Login login,String remember,HttpServletRequest request,HttpServletResponse response){
+
+
         Login loginu = userService.userLogin(login);
+        if(loginu==null){
+            request.setAttribute("message","登录名或密码错误");
+            return "../../loginjbk";
+        }
+
+        if (remember != null){
+            Cookie cookie = new Cookie("loginname",login.getLoginName());
+            cookie.setPath("/");
+            cookie.setMaxAge(24*60*60);
+            response.addCookie(cookie);
+        }else{
+            Cookie cookie = new Cookie("loginname",null);
+            cookie.setPath("/");
+            cookie.setMaxAge(1);
+            response.addCookie(cookie);
+        }
+
+
         request.getSession().setAttribute("user_login",loginu);
         return "../../index";
     }
@@ -52,5 +73,14 @@ public class UserController {
     public String  test4(HttpServletRequest request){
        request.getSession().removeAttribute("user_login");
         return "../../index";
+    }
+
+
+    @RequestMapping("/verify")
+    @ResponseBody
+    public int  test5(String name){
+        int i = userService.userOne(name);
+        System.err.println("++++++++=====:"+i);
+        return i;
     }
 }

@@ -87,8 +87,16 @@
       <p>累计成交：<strong>12亿2332万元</strong></p>
       <p>运营时间：<strong>123天</strong></p>
       <p><strong>24</strong>小时成功转让率<strong>12.12%</strong></p>
-      <a href="" class="btn btn1">立即登录</a><br>
-      <a href="" class="btn btn2">立即注册</a>
+
+      <c:choose>
+        <c:when test="${sessionScope.user_login.loginName == null}">
+          <a href="loginjbk.jsp" class="btn btn1">立即登录</a><br>
+          <a href="register.jsp" class="btn btn2">立即注册</a>
+        </c:when>
+        <c:otherwise>
+          <font color="red" class="btn btn1" size="2">你好，${sessionScope.user_login.loginName}用户</font>
+        </c:otherwise>
+      </c:choose>
     </div>
   </div>
 </div>

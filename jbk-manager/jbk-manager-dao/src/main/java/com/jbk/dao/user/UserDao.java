@@ -16,4 +16,6 @@ import java.io.Serializable;
 @Repository("userDao")
 public interface UserDao extends JpaRepository<User, Serializable> {
 
+
+
 }

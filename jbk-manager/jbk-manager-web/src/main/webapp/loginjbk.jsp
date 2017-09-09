@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!doctype html>
 <html>
 <head>
@@ -66,15 +67,28 @@
           <span class="fl">登录</span>
           <em class="fr">没有帐号，<a href="register.jsp">立即注册</a></em>
         </h2>
-        <form method="post" action="loginuser">
+        <form method="post" action="loginuser" onsubmit="return check()">
           <fieldset>
             <p class="mt20">
-              <input type="text" id="loginName" name="loginName" placeholder="用户名" class="lg_input01 lg_input">
+              <input type="text" id="loginName" name="loginName" value="${cookie.loginname.value}" placeholder="用户名" class="lg_input01 lg_input" onchange="ln();"><div ><font id="ln" color="red"></font></div>
             </p>
             <p class="mt20">
-              <input type="text" id="passWord" name="passWord" placeholder="密码" class="lg_input02 lg_input">
+             <div><font color="red">${requestScope.message}</font></div>
             </p>
-            <p class="clearfix lg_check"><span class="fl"><input type="checkbox">记住用户名</span><a href="" class="fr">忘记密码？找回</a></p>
+            <p class="mt20">
+              <input type="password" id="passWord" name="passWord" placeholder="密码" class="lg_input02 lg_input" onchange="pw();"><div ><font id="pw" color="red"></font></div>
+            </p>
+
+            <c:choose>
+              <c:when test="${cookie.loginname.value == null}">
+                <p class="clearfix lg_check"><span class="fl"><input name="remember" type="checkbox">记住用户名</span><a href="" class="fr">忘记密码？找回</a></p>
+              </c:when>
+              <c:otherwise>
+                <p class="clearfix lg_check"><span class="fl"><input name="remember" type="checkbox" checked="checked">记住用户名</span><a href="" class="fr">忘记密码？找回</a></p>
+              </c:otherwise>
+            </c:choose>
+
+
             <p><input type="submit" value="登录" class="lg_btn" ></p>
           </fieldset>
         </form>
@@ -131,5 +145,40 @@
   </div>
 </div>
 <!-- footer end -->
+<script type="text/javascript">
+
+  function ln(){
+    var n = document.getElementById("loginName").value;
+    if(n.length==0){
+      document.getElementById("ln").innerHTML="请输入用户名";
+    }else{
+      document.getElementById("ln").innerHTML="";
+    }
+  }
+  function pw(){
+    var p = document.getElementById("passWord").value;
+    if(p.length==0){
+      document.getElementById("pw").innerHTML="请输入密码";
+    }else{
+      document.getElementById("pw").innerHTML="";
+    }
+  }
+  function check(){
+    var n = document.getElementById("loginName").value;
+    var p = document.getElementById("passWord").value;
+    if(n.length==0){
+      document.getElementById("ln").innerHTML="请输入用户名";
+    }
+    if(p.length==0){
+      document.getElementById("pw").innerHTML="请输入密码";
+    }
+    if(n.length>0 && p.length>0){
+      return true;
+    }
+    return false;
+  }
+
+
+</script>
 </body>
 </html>
