@@ -17,20 +17,55 @@ public class GCAndGB {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     /**
      * gbid:礼包主键id
      */
-    @Column(name="gbid")
-    private int gbid;
+    @JoinColumn(name="gbid")
+    @ManyToOne(targetEntity = GiftBag.class,fetch = FetchType.EAGER)
+    private GiftBag giftBag;
     /**
      * gcid:礼券主键id
      */
-    @Column(name="gcid")
-    private int gcid;
+    @JoinColumn(name="gcid")
+    @ManyToOne(targetEntity = GiftCertificate.class,fetch = FetchType.EAGER)
+    private GiftCertificate giftCertificate;
     /**
      * gcid:等级主键id
      */
-    @Column(name="lvid")
-    private int lvid;
+    @JoinColumn(name="lvid")
+    @ManyToOne(targetEntity = GiftCertificate.class,fetch = FetchType.EAGER)
+    private Integer lvid;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public GiftBag getGiftBag() {
+        return giftBag;
+    }
+
+    public void setGiftBag(GiftBag giftBag) {
+        this.giftBag = giftBag;
+    }
+
+    public GiftCertificate getGiftCertificate() {
+        return giftCertificate;
+    }
+
+    public void setGiftCertificate(GiftCertificate giftCertificate) {
+        this.giftCertificate = giftCertificate;
+    }
+
+    public Integer getLvid() {
+        return lvid;
+    }
+
+    public void setLvid(Integer lvid) {
+        this.lvid = lvid;
+    }
 }
