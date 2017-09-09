@@ -17,7 +17,7 @@ public class GiftBag {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     /**
      * gb_name:礼包名
      */
@@ -27,13 +27,13 @@ public class GiftBag {
      * time:发放日期
      */
     @Column(name="time")
-    private int time;
+    private Integer time;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -45,11 +45,11 @@ public class GiftBag {
         this.gbName = gbName;
     }
 
-    public int getTime() {
+    public Integer getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(Integer time) {
         this.time = time;
     }
 }

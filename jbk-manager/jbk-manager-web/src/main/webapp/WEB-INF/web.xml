@@ -50,12 +50,10 @@
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-<<<<<<< HEAD
-=======
+
 
     <servlet-mapping>
         <servlet-name>default</servlet-name>3
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
->>>>>>> origin/master
 </web-app>

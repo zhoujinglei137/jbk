@@ -3,6 +3,7 @@ package com.jbk.web.admin;
 import com.jbk.admin.service.UserAdminService;
 import com.jbk.admin.vo.Result;
 import com.jbk.pojo.admin.UserAdmin;
+import com.jbk.util.PageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
@@ -33,8 +34,9 @@ public class UserAdminController {
 
     @RequestMapping("admins")
     @ResponseBody
-    public Result showByPage(){
-        return userAdminService.findAll();
+    public Result showByPage(PageDto pageDto,UserAdmin userAdmin){
+        System.out.println("123刘铭"+pageDto.getRows());
+        return userAdminService.findAll(pageDto,userAdmin);
     }
     @RequestMapping("adminadd")
     @ResponseBody

@@ -17,7 +17,7 @@ public class UserAdmin {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;//主键
+    private Integer id;//主键
     /**
      * login_name:登录名
      */
@@ -39,11 +39,11 @@ public class UserAdmin {
     @Column(name = "sort")
     private int sort;//类别
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

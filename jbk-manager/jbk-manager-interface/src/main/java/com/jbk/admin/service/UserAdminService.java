@@ -1,11 +1,8 @@
 package com.jbk.admin.service;
 
-<<<<<<< HEAD:jbk-manager/jbk-manager-interface/src/main/java/com/jbk/admin/service/UserAdminService.java
 import com.jbk.admin.vo.Result;
-=======
-import com.jbk.pojo.admin.Letter;
->>>>>>> origin/master:jbk-manager/jbk-manager-interface/src/main/java/com/jbk/admin/vo/service/UserAdminService.java
 import com.jbk.pojo.admin.UserAdmin;
+import com.jbk.util.PageDto;
 
 /**
  * 创建人：姚鹏
@@ -24,18 +21,17 @@ public interface UserAdminService {
     /**
      * 需要参数：无
      *  返回参数：UserAdmin类型的集合
-     * 功能:查询所有记录
+     * 功能:查询符合条件的记录
      * 创建时间：  2017/9/6.
      */
-    Result<UserAdmin> findAll();
+    Result<UserAdmin> findAll(PageDto pageDto,UserAdmin userAdmin);
     /**
      * 需要参数：无
      *  返回参数：long
-     * 功能:查询有多少条记录
+     * 功能:查询有多少条符合条件的记录
      * 创建时间：  2017/9/6.
      */
     long count();
-<<<<<<< HEAD:jbk-manager/jbk-manager-interface/src/main/java/com/jbk/admin/service/UserAdminService.java
     /**
      * 需要参数：无
      *  返回参数：int
@@ -43,7 +39,4 @@ public interface UserAdminService {
      * 创建时间：  2017/9/6.
      */
     int deleteMany(long[] ids);
-=======
->>>>>>> origin/master:jbk-manager/jbk-manager-interface/src/main/java/com/jbk/admin/vo/service/UserAdminService.java
-
 }

@@ -31,8 +31,7 @@
     <button onclick="add()" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">新增</button>
     <button onclick="edit()" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">编辑</button>
     <button onclick="remove()" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除</button>
-<%--    <button onclick="down()" class="easyui-linkbutton" data-options="iconCls:'icon-down',plain:true">下架</button>
-    <button onclick="up()" class="easyui-linkbutton" data-options="iconCls:'icon-up',plain:true">上架</button>--%>
+
   </div>
 </div>
 <%--表格形式显示的页面--%>
@@ -40,7 +39,7 @@
 
 <script>
   function searchForm(){
-    $('#gl').datagrid('load',{
+    $('#dg').datagrid('load',{
       loginName: $('#loginName').val(),
       userName: $('#userName').val(),
     });
@@ -76,6 +75,10 @@
   function add(){
     ttshop.addTab("新增管理","admin/admin-add");
   }
+  function edit(){
+    ttshop.addTab("管理员信息","admin/admin-update");
+  }
+
 
   $('#dg').datagrid({
     url:"admins",
@@ -96,8 +99,6 @@
       {field:'sort',title:'类别'},
     ]]
   });
-
-
 </script>
 
 </body>

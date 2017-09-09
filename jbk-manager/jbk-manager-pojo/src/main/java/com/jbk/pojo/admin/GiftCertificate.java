@@ -17,7 +17,7 @@ public class GiftCertificate {
      */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
     /**
      * gcName：礼券名称
      */
@@ -27,23 +27,23 @@ public class GiftCertificate {
      * gcMoney：礼券金额
      */
     @Column(name="gc_money")
-    private double gcMoney;
+    private Double gcMoney;
     /**
      * gcScop：礼券使用范围（多少钱可用）
      */
     @Column(name="gc_scop")
-    private double gcScop;
+    private Double gcScop;
     /**
      * indate：有效期
      */
     @Column(name="indate")
-    private int indate;
+    private Integer indate;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -55,27 +55,27 @@ public class GiftCertificate {
         this.gcName = gcName;
     }
 
-    public double getGcMoney() {
+    public Double getGcMoney() {
         return gcMoney;
     }
 
-    public void setGcMoney(double gcMoney) {
+    public void setGcMoney(Double gcMoney) {
         this.gcMoney = gcMoney;
     }
 
-    public double getGcScop() {
+    public Double getGcScop() {
         return gcScop;
     }
 
-    public void setGcScop(double gcScop) {
+    public void setGcScop(Double gcScop) {
         this.gcScop = gcScop;
     }
 
-    public int getIndate() {
+    public Integer getIndate() {
         return indate;
     }
 
-    public void setIndate(int indate) {
+    public void setIndate(Integer indate) {
         this.indate = indate;
     }
 }

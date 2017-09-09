@@ -17,12 +17,8 @@ import java.io.Serializable;
 public interface UserAdminDao extends JpaRepository<UserAdmin,Serializable>{
     @Query(nativeQuery = true,value = "select count(1) from tb_admin")
     long getCount();
-<<<<<<< HEAD
     @Modifying
     @Query(nativeQuery = true,value="delete from tb_admin where id in :ids")
     int deleteMany(@Param("ids")long[] ids);
-=======
 
-
->>>>>>> origin/master
 }
