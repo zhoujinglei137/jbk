@@ -33,10 +33,17 @@ public interface UserAdminService {
      */
     long count();
     /**
-     * 需要参数：无
+     * 需要参数：long ids[]数组
      *  返回参数：int
      * 功能:删除一个ids数组的管理员
      * 创建时间：  2017/9/6.
      */
     int deleteMany(long[] ids);
+    /**
+     * 需要参数：无
+     *  返回参数：UserAdmin
+     * 功能:查询出一个对象
+     * 创建时间：  2017/9/6.
+     */
+    UserAdmin findOne(long id);
 }

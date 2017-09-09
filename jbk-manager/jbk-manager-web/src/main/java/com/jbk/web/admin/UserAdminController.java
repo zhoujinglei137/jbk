@@ -35,7 +35,6 @@ public class UserAdminController {
     @RequestMapping("admins")
     @ResponseBody
     public Result showByPage(PageDto pageDto,UserAdmin userAdmin){
-        System.out.println("123刘铭"+pageDto.getRows());
         return userAdminService.findAll(pageDto,userAdmin);
     }
     @RequestMapping("adminadd")
@@ -47,5 +46,10 @@ public class UserAdminController {
     @ResponseBody
     public int deleteMany(@RequestParam("ids[]")long[] ids){
         return  userAdminService.deleteMany(ids);
+    }
+    @RequestMapping("adminupdate")
+    @ResponseBody
+    public UserAdmin updateUserAdmin(@RequestParam("id")long id){
+       return  userAdminService.findOne(id);
     }
 }

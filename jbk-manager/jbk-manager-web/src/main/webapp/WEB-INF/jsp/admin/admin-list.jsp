@@ -76,7 +76,35 @@
     ttshop.addTab("新增管理","admin/admin-add");
   }
   function edit(){
-    ttshop.addTab("管理员信息","admin/admin-update");
+
+    var selectRows = $('#dg').datagrid('getSelections');
+    if(selectRows.length == 0){
+      $.messager.alert('提示','未选中记录','warning');
+      return;
+    }
+    if(selectRows.length >1){
+      $.messager.alert('提示','只能选中一条记录','warning');
+      return;
+    }
+    $.messager.confirm('确认','您确认想要修改选中的记录吗？',function(r){
+
+      if (r){
+        //获取用户选中的记录
+        var id;
+        //异步提交给后台
+        $.ajax({
+          url:"adminupdate",
+          type:"post",
+          data:{"id":id},
+          success:function(data){
+            ttshop.addTab("管理员信息","admin/admin-update");
+          //  $('#dg').datagrid('reload');
+          },
+          dataType:"json"
+        });
+
+      }
+    });
   }
 
 
@@ -95,8 +123,8 @@
       {field:'ck',checkbox:true},
       {field:'id',title:'管理员编号',sortable:true},
       {field:'loginName',title:'登录名',sortable:true},
-      {field:'userName',title:'昵称'},
-      {field:'sort',title:'类别'},
+      {field:'userName',title:'昵称',sortable:true},
+      {field:'sorts',title:'类别'},
     ]]
   });
 </script>

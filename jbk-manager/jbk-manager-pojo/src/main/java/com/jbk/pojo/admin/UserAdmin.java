@@ -37,7 +37,7 @@ public class UserAdmin {
      * sort:类别
      */
     @Column(name = "sort")
-    private int sort;//类别
+    private Integer sorts;//类别
 
     public Integer getId() {
         return id;
@@ -71,11 +71,11 @@ public class UserAdmin {
         this.userName = userName;
     }
 
-    public int getSort() {
-        return sort;
+    public Integer getSorts() {
+        return sorts;
     }
 
-    public void setSort(int sort) {
-        this.sort = sort;
+    public void setSorts(Integer sorts) {
+        this.sorts = sorts;
     }
 }

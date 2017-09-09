@@ -25,6 +25,7 @@ import javax.transaction.Transactional;
 public class UserAdminServiceImpl implements UserAdminService{
     @Autowired
     private UserAdminDao userAdminDao;
+    @Transactional
     @Override
     public UserAdmin save(UserAdmin admin) {
         return userAdminDao.save(admin);
@@ -55,5 +56,9 @@ public class UserAdminServiceImpl implements UserAdminService{
         return userAdminDao.deleteMany(ids);
     }
 
+    @Override
+    public UserAdmin findOne(long id) {
+        return userAdminDao.findOne(id);
+    }
 
 }
