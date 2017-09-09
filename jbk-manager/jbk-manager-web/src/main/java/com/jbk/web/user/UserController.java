@@ -37,7 +37,7 @@ public class UserController {
         System.err.println("user:"+user+";login"+login);
         System.err.println("1234567890-1234567890");
         userService.userRegister(user,login);
-        return "../index";
+        return "../../index";
     }
 
     @RequestMapping("/loginuser")

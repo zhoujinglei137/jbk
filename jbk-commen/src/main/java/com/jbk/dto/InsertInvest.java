@@ -6,20 +6,20 @@ package com.jbk.dto;
  */
 public class InsertInvest {
 
-    private int pid;
-    private double InvestLimit;
-    private int TimeLimit;
+    private Integer pid;
+    private Double InvestLimit;
+    private Integer TimeLimit;
 
 
     /**
      * 所投资产品id
      * @return
      */
-    public int getPid() {
+    public Integer getPid() {
         return pid;
     }
 
-    public void setPid(int pid) {
+    public void setPid(Integer pid) {
         this.pid = pid;
     }
 
@@ -27,11 +27,11 @@ public class InsertInvest {
      * 所投资金额
      * @return
      */
-    public double getInvestLimit() {
+    public Double getInvestLimit() {
         return InvestLimit;
     }
 
-    public void setInvestLimit(double investLimit) {
+    public void setInvestLimit(Double investLimit) {
         InvestLimit = investLimit;
     }
 
@@ -39,11 +39,11 @@ public class InsertInvest {
      * 投资期限
      * @return
      */
-    public int getTimeLimit() {
+    public Integer getTimeLimit() {
         return TimeLimit;
     }
 
-    public void setTimeLimit(int timeLimit) {
+    public void setTimeLimit(Integer timeLimit) {
         TimeLimit = timeLimit;
     }
 

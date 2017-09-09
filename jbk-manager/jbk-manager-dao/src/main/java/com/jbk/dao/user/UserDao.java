@@ -2,6 +2,7 @@ package com.jbk.dao.user;
 
 import com.jbk.pojo.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
 
@@ -12,6 +13,7 @@ import java.io.Serializable;
  * 包的名称 : com.jbk.dao.user
  * 说明 ：用户增删改查的dao层
  */
+@Repository("userDao")
 public interface UserDao extends JpaRepository<User, Serializable> {
 
 }
