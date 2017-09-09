@@ -33,9 +33,11 @@ public class PageDto implements Pageable {
      */
     private Sort mysort;
 
+
     public int getPage() {
         return page;
     }
+
 
     public void setPage(int page) {
         this.page = page;

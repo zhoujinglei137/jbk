@@ -35,9 +35,21 @@
       <a href=""><img src="images/zxcf_qq.png" alt=""></a>
     </div>
     <div class="zxcf_top_r fr">
-      <a href="" class="curspan">立即登录</a>
-      <span>|</span>
-      <a href="">免费注册</a>
+
+      <c:choose>
+        <c:when test="${sessionScope.user_login.loginName == null}">
+          <a href="loginjbk.jsp" class="curspan">立即登录</a>
+          <span>|</span>
+          <a href="register.jsp">免费注册</a>
+        </c:when>
+        <c:otherwise>
+          <font color="red" size="2">你好，${sessionScope.user_login.loginName}用户</font>
+          <span>|</span>
+          <a href="logout">注销</a>
+        </c:otherwise>
+      </c:choose>
+
+
       <span>|</span>
       <a href="">常见问题</a>
     </div>
@@ -46,7 +58,7 @@
 <!-- end top -->
 <div class="zxcf_nav_wper">
   <div class="zxcf_nav clearfix px1000">
-    <div class="zxcf_nav_l fl"><img src="images/jbk2.png" alt="">&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/ad.png"></div>
+    <div class="zxcf_nav_l fl"><img src="images/jbk2.png" alt="">&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/zxcf_logo.png"></div>
     <div class="zxcf_nav_r fr">
       <img src="images/zxcf_perinfo.png" alt="">
 		 	<span>我的账户
@@ -75,8 +87,16 @@
       <p>累计成交：<strong>12亿2332万元</strong></p>
       <p>运营时间：<strong>123天</strong></p>
       <p><strong>24</strong>小时成功转让率<strong>12.12%</strong></p>
-      <a href="" class="btn btn1">立即登录</a><br>
-      <a href="" class="btn btn2">立即注册</a>
+
+      <c:choose>
+        <c:when test="${sessionScope.user_login.loginName == null}">
+          <a href="loginjbk.jsp" class="btn btn1">立即登录</a><br>
+          <a href="register.jsp" class="btn btn2">立即注册</a>
+        </c:when>
+        <c:otherwise>
+          <font color="red" class="btn btn1" size="2">你好，${sessionScope.user_login.loginName}用户</font>
+        </c:otherwise>
+      </c:choose>
     </div>
   </div>
 </div>
@@ -84,7 +104,7 @@
 <div class="zscf_con_wper pb30">
   <div class="zscf_con px1000">
     <div class="zscf_block1 mt30 ">
-      <h2 class="zscf_block1_tit clearfix"><span class="fl"><strong>发标预告</strong>换卡后放假啊客户看 将黑金卡号看见啊后防盗卡…… </span><a href="" class="fr">查看更多>></a></h2>
+      <h2 class="zscf_block1_tit clearfix"><span class="fl"><strong>发标预告</strong>十一来啦~\(≧▽≦)/~啦啦啦，小宝送福利，现在投资，坐等拿钱</span><a href="" class="fr">查看更多>></a></h2>
       <div class="clearfix clear">
         <ul class="zscf_block1_text clearfix fl">
           <li>
@@ -123,7 +143,7 @@
       <div class="zscf_block2_l fl">
         <div class="block2_biao clearfix">
           <div class="clearfix">
-            <span class="fl">${productClass}【2132312】</span>
+            <span class="fl">${noob.productClass.productClassName}【${noob.productName}】</span>
             <div class="block2_biao_r fr">
               <div class="tjxm_jindu ">
 
@@ -137,14 +157,14 @@
             </div>
           </div>
           <ul class="clearfix clear block2_biao_ul">
-            <li>起投资金：<em>100元</em></li>
-            <li><img src="images/bao.png" alt="">年化收益：<strong>6+6<i>%</i></strong>
+            <li>起投资金：<em>${noob.startLimit}元</em></li>
+            <li><img src="images/bao.png" alt="">年化收益：<strong>${noob.yearYield}<i>%</i></strong>
             </li>
             <li>
-              产品期限：<span>7天</span>
+              产品期限：<span>${noob.investDeadline}天</span>
             </li>
             <li>
-              借款金额：<span>2000000元</span>
+              剩余额度：<span>${noob.getlimit}元</span>
             </li>
             <li>
               <a href="" class="invest_btn">立即投资</a>
@@ -152,69 +172,6 @@
           </ul>
         </div>
     </c:forEach>
-    <div class="zscf_block2 mt30 clearfix ">
-      <div class="zscf_block2_l fl">
-        <div class="block2_biao clearfix">
-          <div class="clearfix">
-            <span class="fl">测试标【2132312】</span>
-            <div class="block2_biao_r fr">
-              <div class="tjxm_jindu ">
-
-                <div class="press_wper fl">
-                  <div class="press">
-
-                  </div>
-                </div>
-                <span class="fl">11%</span>
-              </div>
-            </div>
-          </div>
-          <ul class="clearfix clear block2_biao_ul">
-            <li>起投资金：<em>100元</em></li>
-            <li><img src="images/bao.png" alt="">年化收益：<strong>6+6<i>%</i></strong>
-            </li>
-            <li>
-              产品期限：<span>7天</span>
-            </li>
-            <li>
-              借款金额：<span>2000000元</span>
-            </li>
-            <li>
-              <a href="" class="invest_btn">立即投资</a>
-            </li>
-          </ul>
-        </div>
-        <div class="block2_biao2 clearfix">
-          <div class="clearfix">
-            <span class="fl">测试标【2132312】</span>
-            <div class="block2_biao_r fr">
-              <div class="tjxm_jindu ">
-
-                <div class="press_wper fl">
-                  <div class="press">
-
-                  </div>
-                </div>
-                <span class="fl">11%</span>
-              </div>
-            </div>
-          </div>
-          <ul class="clearfix clear block2_biao_ul">
-            <li>起投资金：<em>100元</em></li>
-            <li><img src="images/bao.png" alt="">年化收益：<strong>6+6<i>%</i></strong>
-            </li>
-            <li>
-              产品期限：<span>7天</span>
-            </li>
-            <li>
-              借款金额：<span>2000000元</span>
-            </li>
-            <li>
-              <a href="" class="invest_btn">立即投资</a>
-            </li>
-          </ul>
-        </div>
-      </div>
       <!-- end left -->
       <div class="zscf_block2_r fl">
         <div class="block2_r_video">
@@ -226,158 +183,48 @@
       <!-- end right -->
     </div>
     <!--  end block2 -->
-    <div class="zscf_block3 mt30 ">
-      <h2 class="block3_tit clearfix"><span class="block3_curspan">项目列表</span><em><img src="images/shu.png" alt=""></em><span>债权转让</span><a href="">更多></a></h2>
-      <div class="block3_pro_box clear">
-        <div class="block3_prolist">
+    <c:forEach items="${products}" var="product">
+      <div class="zscf_block3 mt30 ">
+        <h2 class="block3_tit clearfix"><span class="block3_curspan">理财产品</span><em><img src="images/shu.png" alt=""></em><span>债权转让</span><a href="">更多></a></h2>
+        <div class="block3_pro_box clear">
+          <div class="block3_prolist">
 
-          <div class="block3_proone clearfix clear">
-            <span class="fl proone_left"><img src="images/xin.png" alt=""></span>
-            <!--  -->
-            <div class="fl proone_center">
-              <div class="clearfix">
-                <span class="fl proone_center_span1">测试标【2132312】</span>
-                <div class="block2_biao_r fr">
-                  <div class="tjxm_jindu ">
+            <div class="block3_proone clearfix clear">
+              <span class="fl proone_left"><img src="images/xin.png" alt=""></span>
+              <!--  -->
+              <div class="fl proone_center">
+                <div class="clearfix">
+                  <span class="fl proone_center_span1">${product.productClass.productClassName}【${product.productName}】</span>
+                  <div class="block2_biao_r fr">
+                    <div class="tjxm_jindu ">
 
-                    <div class="press_wper fl">
-                      <div class="press">
+                      <div class="press_wper fl">
+                        <div class="press">
 
+                        </div>
                       </div>
+                      <span class="fl">11%</span>
                     </div>
-                    <span class="fl">11%</span>
                   </div>
                 </div>
+                <ul class="clearfix proone_center_ul clear pt10">
+                  <li>预计年化收益:<span>${product.yearYield}%</span></li>
+                  <li>投资期限:<span>${product.investDeadline}个月</span></li>
+                  <li>项目金额：<span>${product.itemlimit}</span></li>
+                </ul>
               </div>
-              <ul class="clearfix proone_center_ul clear pt10">
-                <li>预计年化收益:<span>12.5%</span></li>
-                <li>投资期限:<span>24个月</span></li>
-                <li>借款金额：<span>123122132元</span></li>
-              </ul>
+              <!--  -->
+              <a href="" class="block3_btn fl">立即投资</a>
             </div>
-            <!--  -->
-            <a href="" class="block3_btn fl">立即投资</a>
+          <!-- end 项目列表 -->
+          <div class="block3_prolist" style="display:none;">
+            2
           </div>
-          <!--listone  -->
-          <div class="block3_proone clearfix clear">
-            <span class="fl proone_left"><img src="images/xin.png" alt=""></span>
-            <!--  -->
-            <div class="fl proone_center">
-              <div class="clearfix">
-                <span class="fl proone_center_span1">测试标【2132312】</span>
-                <div class="block2_biao_r fr">
-                  <div class="tjxm_jindu ">
-
-                    <div class="press_wper fl">
-                      <div class="press">
-
-                      </div>
-                    </div>
-                    <span class="fl">11%</span>
-                  </div>
-                </div>
-              </div>
-              <ul class="clearfix proone_center_ul clear pt10">
-                <li>预计年化收益:<span>12.5%</span></li>
-                <li>投资期限:<span>24个月</span></li>
-                <li>借款金额：<span>123122132元</span></li>
-              </ul>
-            </div>
-            <!--  -->
-            <a href="" class="block3_btn fl">立即投资</a>
-          </div>
-          <!--listone  -->
-          <div class="block3_proone clearfix clear">
-            <span class="fl proone_left"><img src="images/xin.png" alt=""></span>
-            <!--  -->
-            <div class="fl proone_center">
-              <div class="clearfix">
-                <span class="fl proone_center_span1">测试标【2132312】</span>
-                <div class="block2_biao_r fr">
-                  <div class="tjxm_jindu ">
-
-                    <div class="press_wper fl">
-                      <div class="press">
-
-                      </div>
-                    </div>
-                    <span class="fl">11%</span>
-                  </div>
-                </div>
-              </div>
-              <ul class="clearfix proone_center_ul clear pt10">
-                <li>预计年化收益:<span>12.5%</span></li>
-                <li>投资期限:<span>24个月</span></li>
-                <li>借款金额：<span>123122132元</span></li>
-              </ul>
-            </div>
-            <!--  -->
-            <a href="" class="block3_btn fl">立即投资</a>
-          </div>
-          <!--listone  -->
-          <div class="block3_proone clearfix clear">
-            <span class="fl proone_left"><img src="images/xin.png" alt=""></span>
-            <!--  -->
-            <div class="fl proone_center">
-              <div class="clearfix">
-                <span class="fl proone_center_span1">测试标【2132312】</span>
-                <div class="block2_biao_r fr">
-                  <div class="tjxm_jindu ">
-
-                    <div class="press_wper fl">
-                      <div class="press">
-
-                      </div>
-                    </div>
-                    <span class="fl">11%</span>
-                  </div>
-                </div>
-              </div>
-              <ul class="clearfix proone_center_ul clear pt10">
-                <li>预计年化收益:<span>12.5%</span></li>
-                <li>投资期限:<span>24个月</span></li>
-                <li>借款金额：<span>123122132元</span></li>
-              </ul>
-            </div>
-            <!--  -->
-            <a href="" class="block3_btn fl">立即投资</a>
-          </div>
-          <!--listone  -->
-          <div class="block3_proone clearfix clear">
-            <span class="fl proone_left"><img src="images/xin.png" alt=""></span>
-            <!--  -->
-            <div class="fl proone_center">
-              <div class="clearfix">
-                <span class="fl proone_center_span1">测试标【2132312】</span>
-                <div class="block2_biao_r fr">
-                  <div class="tjxm_jindu ">
-
-                    <div class="press_wper fl">
-                      <div class="press">
-
-                      </div>
-                    </div>
-                    <span class="fl">11%</span>
-                  </div>
-                </div>
-              </div>
-              <ul class="clearfix proone_center_ul clear pt10">
-                <li>预计年化收益:<span>12.5%</span></li>
-                <li>投资期限:<span>24个月</span></li>
-                <li>借款金额：<span>123122132元</span></li>
-              </ul>
-            </div>
-            <!--  -->
-            <a href="" class="block3_btn fl">立即投资</a>
-          </div>
-          <!--listone  -->
-        </div>
-        <!-- end 项目列表 -->
-        <div class="block3_prolist" style="display:none;">
-          2
         </div>
       </div>
-    </div>
+
+    </c:forEach>
+
     <!-- end block3 -->
     <div class="zscf_block4 mt30">
       <img src="images/block4_adver.png">
@@ -535,7 +382,6 @@
         <li><a href="">帮助中心</a></li>
         <li><a href="">友情链接</a></li>
         <li><a href="">招贤纳士</a></li>
-        <li><a href="">收益计算器</a></li>
       </ul>
     </div>
     <!-- end right -->
