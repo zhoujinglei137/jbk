@@ -20,4 +20,6 @@ public interface LoginDao extends JpaRepository<Login, Serializable> {
 
 
     Login findByLoginNameAndPassWord(String loginName,String password);
+
+    Login findByLoginName(String name);
 }

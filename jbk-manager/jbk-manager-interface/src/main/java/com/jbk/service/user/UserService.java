@@ -13,4 +13,6 @@ import com.jbk.pojo.user.User;
 public interface UserService {
      User userRegister(User user,Login login);
      Login userLogin(Login login);
+
+     int userOne(String name);
 }

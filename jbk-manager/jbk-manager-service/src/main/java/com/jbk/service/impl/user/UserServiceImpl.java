@@ -48,4 +48,14 @@ public class UserServiceImpl implements UserService {
         Login loginu = loginDao.findByLoginNameAndPassWord(login.getLoginName(), login.getPassWord());
         return loginu;
     }
+
+    @Override
+    public int userOne(String name) {
+        int i = 0;
+        Login byLoginName = loginDao.findByLoginName(name);
+        if(byLoginName!=null){
+            i=1;
+        }
+        return i;
+    }
 }
