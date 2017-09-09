@@ -33,7 +33,41 @@ public class PageDto implements Pageable {
      */
     private Sort mysort;
 
+    public int getPage() {
+        return page;
+    }
 
+    public void setPage(int page) {
+        this.page = page;
+    }
+
+    public int getRows() {
+        return rows;
+    }
+
+    public void setRows(int rows) {
+        this.rows = rows;
+    }
+
+    public void setSort(String sort) {
+        this.sort = sort;
+    }
+
+    public String getOrder() {
+        return order;
+    }
+
+    public void setOrder(String order) {
+        this.order = order;
+    }
+
+    public Sort getMysort() {
+        return mysort;
+    }
+
+    public void setMysort(Sort mysort) {
+        this.mysort = mysort;
+    }
 
     public PageDto(){}
 
@@ -71,6 +105,8 @@ public class PageDto implements Pageable {
     public Sort getSort() {
         if (mysort!=null)
             return mysort;
+        if(sort == null || order == null)
+            return null;
         String[] sorts = sort.split(",");
         String[] orders = order.split(",");
         List<Sort.Order> orders1 = new ArrayList<>();
@@ -101,5 +137,17 @@ public class PageDto implements Pageable {
     @Override
     public boolean hasPrevious() {
         return page > 0;
+    }
+
+
+    @Override
+    public String toString() {
+        return "PageDto{" +
+                "page=" + page +
+                ", rows=" + rows +
+                ", sort='" + sort + '\'' +
+                ", order='" + order + '\'' +
+                ", mysort=" + mysort +
+                '}';
     }
 }

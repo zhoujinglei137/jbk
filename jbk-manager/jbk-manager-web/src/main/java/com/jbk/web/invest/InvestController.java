@@ -30,7 +30,6 @@ public class InvestController {
     public String saveInvest(HttpSession session,InsertInvest invest){
         User user = (User) session.getAttribute("user");
         service.save(user,invest);
-
         return null;
     }
 }

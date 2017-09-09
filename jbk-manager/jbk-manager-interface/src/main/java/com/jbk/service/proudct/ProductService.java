@@ -3,6 +3,8 @@ package com.jbk.service.proudct;
 
 import com.jbk.pojo.product.Product;
 import com.jbk.product.vo.VProduct;
+import com.jbk.util.PageBean;
+import com.jbk.util.PageDto;
 
 import java.text.ParseException;
 import java.util.List;
@@ -25,7 +27,7 @@ public interface ProductService {
      * 功能:查询所有产品
      * 创建时间：  2017/9/6.
      */
-    List<Product> findAll();
+    PageBean<Product> findAll(PageDto pageDto,Product product);
     /**
      * 需要参数：无
      *  返回参数：long （产品的总条数）
@@ -53,5 +55,5 @@ public interface ProductService {
      * 功能:根据主键值 删除一行记录
      * 创建时间：  2017/9/6.
      */
-    int removeById(int id);
+    int removeById(long[] ids);
 }
