@@ -42,7 +42,12 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Login userLogin(Login login) {
-        Login user = loginDao.loginUser("123", "123");
-        return user;
+        Login user = loginDao.findByLoginNameAndPassWord("123", "123");
+            return user;
+}
+
+    @Override
+    public int userOne(String name) {
+        return 0;
     }
 }
