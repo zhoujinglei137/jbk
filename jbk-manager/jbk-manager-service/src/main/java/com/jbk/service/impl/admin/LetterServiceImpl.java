@@ -2,13 +2,17 @@ package com.jbk.service.impl.admin;
 
 import com.jbk.admin.vo.service.LetterService;
 import com.jbk.dao.admin.LetterDao;
+import com.jbk.dao.user.UserDao;
 import com.jbk.pojo.admin.Letter;
+import com.jbk.pojo.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 作者 ： 周京磊
@@ -20,16 +24,71 @@ import java.util.Date;
 @Service
 @Scope(value="prototype")
 @Transactional
-public class LetterServiceImpl implements LetterService {
+public class LetterServiceImpl implements LetterService{
 
     @Autowired
     private LetterDao letterDao;
 
+    @Autowired
+    private UserDao userDao;
+
+    /**
+     * 添加信息
+     *
+     */
     @Override
-    public Letter saveLetter(Letter letter) {
-        letter.setState(1);
-        letter.setCreateTime(new Date());
-        Letter save = letterDao.save(letter);
-        return save;
+    public int saveLetter(Letter letter) {
+        int x = 0;
+        if(letter.getUser() != null){
+            letter.setState(0);
+            letter.setCreateTime(new Date());
+            letterDao.save(letter);
+            x=121;
+        }else{
+
+            List<Letter> list = new ArrayList<>();
+            List<User> users = userDao.findByLv(letter.getLv());
+            letter.setState(0);
+            letter.setCreateTime(new Date());
+            for (int i = 0;i<users.size();i++){
+                letter.setUser(users.get(i));
+                list.add(new Letter(letter.getTitle(),letter.getContext(),letter.getCreateTime(),letter.getState(),letter.getLv(),letter.getUser(),letter.getUserAdmin()));
+            }
+            System.err.println("=====+++++:"+list.size());
+            letterDao.save(list);
+            x=users.size();
+        }
+        return x;
     }
+
+    /**
+     * 查询有几份未读信息
+     *
+     */
+    @Override
+    public List<Letter> selectLetter(int uid, int lv) {
+        List<Letter> letters = letterDao.selectLetter(uid, lv);
+        return letters;
+    }
+
+    /**
+     *点击查看信息,并修改阅读状态
+     */
+    @Override
+    public Letter lookLetter(int id) {
+        Letter one = letterDao.findOne(id);
+        letterDao.upadteLetter(id);
+        return one;
+    }
+    /**
+     * 删除信息
+     */
+    @Override
+    public int deleteLetter(int id) {
+        letterDao.delete(id);
+        return id;
+    }
+
+
+
 }

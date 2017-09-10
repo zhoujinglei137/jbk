@@ -26,12 +26,12 @@ public class Letter {
     /**
      * 内容标题
      */
-    @Column(name = "titlw")
+    @Column(name = "title")
     private String title;
     /**
      * 内容正文
      */
-    @Column(name = "context")
+    @Column(name = "content")
     private String context;
     /**
      * 创建时间
@@ -45,6 +45,11 @@ public class Letter {
      */
     @Column(name = "state")
     private int state;
+    /**
+     * 发送信息的等级
+     */
+    @Column(name = "lv")
+    private int lv;
     /**
      * 目标用户
      */
@@ -94,6 +99,14 @@ public class Letter {
         this.state = state;
     }
 
+    public int getLv() {
+        return lv;
+    }
+
+    public void setLv(int lv) {
+        this.lv = lv;
+    }
+
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
@@ -122,8 +135,21 @@ public class Letter {
                 ", context='" + context + '\'' +
                 ", createTime=" + createTime +
                 ", state=" + state +
+                ", lv=" + lv +
                 ", user=" + user +
                 ", userAdmin=" + userAdmin +
                 '}';
     }
+
+    public Letter(String title, String context, Date createTime, int state, int lv, User user, UserAdmin userAdmin) {
+        this.title = title;
+        this.context = context;
+        this.createTime = createTime;
+        this.state = state;
+        this.lv = lv;
+        this.user = user;
+        this.userAdmin = userAdmin;
+    }
+
+    public Letter() {}
 }
