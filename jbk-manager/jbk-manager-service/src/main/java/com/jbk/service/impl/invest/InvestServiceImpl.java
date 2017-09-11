@@ -49,13 +49,9 @@ public class InvestServiceImpl implements InvestService {
         invest.setProduct(product);
         invest=investDao.save(invest);
         if (invest != null) {
-            user.setJf((int) insertInvest.getInvestLimit());
+
+            user.setJf(insertInvest.getInvestLimit().intValue());
         }
-
-
-
-
-
         return invest;
     }
 
@@ -88,7 +84,10 @@ public class InvestServiceImpl implements InvestService {
         return invest;
     }
 
-
+    @Override
+    public int updateInvest(int id, int stats) {
+        return 0;
+    }
 
 
 }

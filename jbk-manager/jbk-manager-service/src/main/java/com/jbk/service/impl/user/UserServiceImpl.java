@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * 作者 ： 周京磊
@@ -24,6 +25,7 @@ import javax.transaction.Transactional;
 @Transactional
 public class UserServiceImpl implements UserService {
 
+   // @Resource
     @Autowired
     private UserDao userDao;
     @Autowired
@@ -32,22 +34,32 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User userRegister(User user, Login login) {
-        System.out.println("1234567");
+        user.setLv(1);
+        user.setJf(10);
         User save = userDao.save(user);
-       // login.setId(save.getId());
-       // Login save1 = loginDao.save(login);
-       // System.err.println("user:"+user+";login:"+save1);
+        login.setId(save.getId());
+        login.setMiPassWord(login.getPassWord());
+        Login save1 = loginDao.save(login);
+        System.err.println("1234567"+"user:"+user+";login:"+save1);
         return save;
     }
 
     @Override
     public Login userLogin(Login login) {
-        Login user = loginDao.findByLoginNameAndPassWord("123", "123");
-            return user;
-}
+        Login loginu = loginDao.findByLoginNameAndPassWord(login.getLoginName(), login.getPassWord());
+        return loginu;
+    }
 
     @Override
-    public int userOne(String name) {
-        return 0;
+    public Login userOne(String name) {
+
+        Login byLoginName = loginDao.findByLoginName(name);
+
+        return byLoginName;
+    }
+
+    @Override
+    public List<User> findByLv(int i){
+        return userDao.findByLv(i);
     }
 }

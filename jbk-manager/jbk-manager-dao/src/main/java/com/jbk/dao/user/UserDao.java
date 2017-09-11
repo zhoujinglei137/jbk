@@ -22,7 +22,7 @@ public interface UserDao extends JpaRepository<User, Serializable> {
      * @param lv
      * @return
      */
-        List<User> findByLv(int lv);
+    List<User> findByLv(int lv);
 
     /**
      * 查询用户id与lv是否相同

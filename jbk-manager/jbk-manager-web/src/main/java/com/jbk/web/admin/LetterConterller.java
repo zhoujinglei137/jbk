@@ -35,6 +35,7 @@ public class LetterConterller {
            if(login == null){
                 return 0;
            }else{
+               System.err.println("asdfghjhgfdsdfg");
                User user = new User();
                user.setId(login.getId());
                letter.setUser(user);
