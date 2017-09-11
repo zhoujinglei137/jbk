@@ -24,4 +24,9 @@ public interface UserDao extends JpaRepository<User, Serializable> {
      */
         List<User> findByLv(int lv);
 
+    /**
+     * 查询用户id与lv是否相同
+     */
+    User findByIdAndLv(int id,int lv);
+
 }

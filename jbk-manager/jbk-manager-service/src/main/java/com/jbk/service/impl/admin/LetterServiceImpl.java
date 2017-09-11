@@ -38,12 +38,21 @@ public class LetterServiceImpl implements LetterService{
      */
     @Override
     public int saveLetter(Letter letter) {
+        System.err.println("=====+++++:");
         int x = 0;
         if(letter.getUser() != null){
+            /**
+             * 判断是否用相应id与lv的用户存在
+             */
+            User byIdAndLv = userDao.findByIdAndLv(letter.getUser().getId(), letter.getLv());
+            if(byIdAndLv == null){
+                return 0;
+            }
+
             letter.setState(0);
             letter.setCreateTime(new Date());
             letterDao.save(letter);
-            x=121;
+            x=1;
         }else{
 
             List<Letter> list = new ArrayList<>();

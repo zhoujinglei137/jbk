@@ -171,4 +171,22 @@ public class User {
     public void setEmailState(Integer emailState) {
         this.emailState = emailState;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", balance=" + balance +
+                ", lv=" + lv +
+                ", jf=" + jf +
+                ", cardId=" + cardId +
+                ", birthday=" + birthday +
+                ", tel1=" + tel1 +
+                ", tel2=" + tel2 +
+                ", email='" + email + '\'' +
+                ", telState=" + telState +
+                ", emailState=" + emailState +
+                '}';
+    }
 }

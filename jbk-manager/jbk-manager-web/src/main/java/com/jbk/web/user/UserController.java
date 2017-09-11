@@ -79,7 +79,11 @@ public class UserController {
     @RequestMapping("/verify")
     @ResponseBody
     public int  test5(String name){
-        int i = userService.userOne(name);
+        int i = 0;
+        Login login = userService.userOne(name);
+        if(login != null){
+            i=1;
+        }
         System.err.println("++++++++=====:"+i);
         return i;
     }

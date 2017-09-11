@@ -50,12 +50,10 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int userOne(String name) {
-        int i = 0;
+    public Login userOne(String name) {
+
         Login byLoginName = loginDao.findByLoginName(name);
-        if(byLoginName!=null){
-            i=1;
-        }
-        return i;
+
+        return byLoginName;
     }
 }
