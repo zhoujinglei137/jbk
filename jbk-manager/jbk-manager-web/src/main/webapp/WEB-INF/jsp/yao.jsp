@@ -32,10 +32,11 @@
         <li data-options="attributes:{'href':'admin/admin-update'}">管理员信息</li>
       </ul>
     </div>
-    <div title="网站内容管理" style="padding:10px 0;">
+    <div title="产品管理" style="padding:10px 0;">
       <ul class="easyui-tree">
-        <li data-options="attributes:{'href':'content-category'}">内容分类管理</li>
-        <li data-options="attributes:{'href':'content'}">内容管理</li>
+        <li data-options="attributes:{'href':'product/product-add'}">新增产品</li>
+        <li data-options="attributes:{'href':'product/product-list'}">查询产品</li>
+        <li data-options="attributes:{'href':'product/product-upade'}">修改产品</li>
       </ul>
     </div>
     <div title="索引管理" data-options="iconCls:'icon-tip'" style="padding:10px 0;">

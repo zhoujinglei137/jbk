@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import javax.transaction.Transactional;
 
 /**
@@ -25,7 +24,7 @@ import javax.transaction.Transactional;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-    @Resource
+    @Autowired
     private UserDao userDao;
     @Autowired
     private LoginDao loginDao;
@@ -33,27 +32,22 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User userRegister(User user, Login login) {
-        user.setLv(1);
-        user.setJf(10);
+        System.out.println("1234567");
         User save = userDao.save(user);
-        login.setId(save.getId());
-        login.setMiPassWord(login.getPassWord());
-        Login save1 = loginDao.save(login);
-        System.err.println("1234567"+"user:"+user+";login:"+save1);
+       // login.setId(save.getId());
+       // Login save1 = loginDao.save(login);
+       // System.err.println("user:"+user+";login:"+save1);
         return save;
     }
 
     @Override
     public Login userLogin(Login login) {
-        Login loginu = loginDao.findByLoginNameAndPassWord(login.getLoginName(), login.getPassWord());
-        return loginu;
-    }
+        Login user = loginDao.findByLoginNameAndPassWord("123", "123");
+            return user;
+}
 
     @Override
-    public Login userOne(String name) {
-
-        Login byLoginName = loginDao.findByLoginName(name);
-
-        return byLoginName;
+    public int userOne(String name) {
+        return 0;
     }
 }

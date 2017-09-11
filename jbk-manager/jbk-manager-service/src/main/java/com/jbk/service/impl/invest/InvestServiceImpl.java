@@ -15,7 +15,6 @@ import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
@@ -38,23 +37,25 @@ public class InvestServiceImpl implements InvestService {
      * @return
      */
     @Override
-    @Transactional
     public Invest save(User user,InsertInvest insertInvest) {
         Invest invest = new Invest();
         Date date = new Date();
         invest.setUser(user);
         invest.setInvestDate(date);
         invest.setInvestLimit(insertInvest.getInvestLimit());
-        System.err.println(insertInvest);
         invest.setEarningsDate(DateUtil.getNowAfterDay(date,insertInvest.getTimeLimit()));
         Product product = new Product();
         product.setId(insertInvest.getPid());
         invest.setProduct(product);
-        invest.setStats(0);
         invest=investDao.save(invest);
-       /* if (invest != null) {
-            user.setJf(insertInvest.getInvestLimit().intValue());
-        }*/
+        if (invest != null) {
+            user.setJf((int) insertInvest.getInvestLimit());
+        }
+
+
+
+
+
         return invest;
     }
 
@@ -68,8 +69,8 @@ public class InvestServiceImpl implements InvestService {
     public PageBean<Invest> listInvest(PageDto pageDto,User user){
         Invest invest = new Invest();
         invest.setUser(user);
-        ExampleMatcher exampleMatcher = ExampleMatcher.matchingAll().withIgnoreNullValues().withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING).withIgnoreCase();
-        Example<Invest> investExample = Example.of(invest, exampleMatcher);
+        ExampleMatcher exampleMatcher = ExampleMatcher.matchingAll().withIgnoreNullValues();
+        Example<Invest> investExample = Example.of(invest,exampleMatcher);
         Page<Invest> page = investDao.findAll(investExample, pageDto);
 
         PageBean<Invest> pageBean = new PageBean<>();
@@ -87,11 +88,7 @@ public class InvestServiceImpl implements InvestService {
         return invest;
     }
 
-    @Override
-    public int updateInvest(int id,int stats){
-        int i = investDao.updateInvest(id,stats);
-        return i;
-    }
+
 
 
 }
