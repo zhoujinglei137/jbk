@@ -45,5 +45,5 @@ public interface UserAdminService {
      * 功能:查询出一个对象
      * 创建时间：  2017/9/6.
      */
-    UserAdmin findOne(long id);
+    UserAdmin findOne(Integer id);
 }

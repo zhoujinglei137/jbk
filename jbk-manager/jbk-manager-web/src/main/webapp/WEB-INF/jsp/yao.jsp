@@ -59,7 +59,7 @@
 <script src="js/moment-with-locales.js"></script>
 <!-- 自定义脚本 -->
 <script src="js/common.js"></script>
-
+<script src="js/yao/yao.js"></script>
 <!-- 自定义js -->
 <script>
   ttshop.registerMenuEvent();

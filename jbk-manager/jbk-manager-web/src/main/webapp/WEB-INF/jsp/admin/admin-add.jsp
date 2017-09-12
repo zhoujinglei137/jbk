@@ -39,13 +39,13 @@
       <%--<input class="easyui-textbox" name="id" label="管理员编号：" labelPosition="top" >--%>
     <%--</p>--%>
     <p class="input_container">
-      <input class="easyui-textbox" name="loginName" label="登录名：" labelPosition="top" >
+      <input class="easyui-textbox" name="loginName" label="登录名：" data-options="required:true" labelPosition="top" >
     </p>
     <p class="input_container">
-      <input  class="easyui-textbox" name="userName" label="用户名：" labelPosition="top" multiline="true" >
+      <input  class="easyui-textbox" name="userName" label="用户名：" data-options="required:true" labelPosition="top" multiline="true" >
     </p>
     <p class="input_container">
-      <input class="easyui-textbox" name="passWord" label="登陆密码：" labelPosition="top" >
+      <input class="easyui-textbox" name="passWord" label="登陆密码：" data-options="required:true" labelPosition="top" >
     </p>
     <p>
           <button onclick="submitForm()" class="easyui-linkbutton" type="button" data-options="iconCls:'icon-ok'">保存</button>

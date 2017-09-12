@@ -33,19 +33,17 @@
 </head>
 <body>
 <div align="center"  title="新增管理" data-options="fit:true">
-  <form class="main_form"  id="adminAddForm" name="adminAddForm" method="post">
+  <form class="main_form"  id="adminUpdateForm" name="adminUpdateForm" method="post">
     <p class="easyui-panel" title="新增管理">
-      <%--<p class="input_container">--%>
-      <%--<input class="easyui-textbox" name="id" label="管理员编号：" labelPosition="top" >--%>
-      <%--</p>--%>
+    <input type="hidden" name="id" value="${userAdmin.id}">
     <p class="input_container">
-      <input class="easyui-textbox" name="loginName" label="登录名：" labelPosition="top" value="${userAdmin.loginName}" >
+      <input class="easyui-textbox" name="loginName" label="登录名：" labelPosition="top" data-options="required:true" value="${userAdmin.loginName}" >
     </p>
     <p class="input_container">
-      <input  class="easyui-textbox" name="userName" label="用户名：" labelPosition="top" multiline="true" value="${userAdmin.userName}">
+      <input  class="easyui-textbox" name="userName" label="用户名：" labelPosition="top"  data-options="required:true" multiline="true" value="${userAdmin.userName}">
     </p>
     <p class="input_container">
-      <input class="easyui-textbox" name="passWord" label="登陆密码：" labelPosition="top" value="${userAdmin.passWord}">
+      <input class="easyui-textbox" name="passWord" label="登陆密码：" labelPosition="top" data-options="required:true" value="${userAdmin.passWord}">
     </p>
     <p>
       <button onclick="submitForm()" class="easyui-linkbutton" type="button" data-options="iconCls:'icon-ok'">保存</button>
@@ -56,7 +54,7 @@
 <script>
   //提交表单
   function submitForm() {
-    $('#adminAddForm').form('submit', {
+    $('#adminUpdateForm').form('submit', {
       //提交表单动作的URL地址
       url: 'adminupdate',
       //在提交之前触发，返回false可以终止提交
@@ -65,10 +63,10 @@
 //      },
       //在表单提交成功以后触发
       success: function (data) {
-        ttshop.closeTab('管理员信息');
         $.messager.alert('消息', '修改成功！');
+        ttshop.closeTab('管理员信息');
         if (data != null) {
-          ttshop.addTab('查询管理员', 'admin/admin-list');
+           window.location.href = 'yao';
         }
       }
     });

@@ -7,6 +7,7 @@ import com.jbk.util.PageDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -49,7 +50,17 @@ public class UserAdminController {
     }
     @RequestMapping("adminupdate")
     @ResponseBody
-    public UserAdmin updateUserAdmin(@RequestParam("id")long id){
-       return  userAdminService.findOne(id);
+    public UserAdmin updateUserAdmin(UserAdmin userAdmin){
+        System.err.println("     -----------------            "+userAdmin.getId());
+        return userAdminService.save(userAdmin);
+    }
+    @RequestMapping("admin-update")
+    public String toUpdateUserAdmin(@RequestParam("id")Integer id,Model model){
+        if(id==0){
+            return "admin-update";
+        }
+        UserAdmin userAdmin = userAdminService.findOne(id);
+        model.addAttribute("userAdmin",userAdmin);
+        return  "admin/admin-update";
     }
 }

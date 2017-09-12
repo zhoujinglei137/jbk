@@ -76,8 +76,7 @@
     ttshop.addTab("新增管理","admin/admin-add");
   }
   function edit(){
-
-    var selectRows = $('#dg').datagrid('getSelections');
+    var selectRows = $('#dg').datagrid('getSelections')
     if(selectRows.length == 0){
       $.messager.alert('提示','未选中记录','warning');
       return;
@@ -91,17 +90,19 @@
       if (r){
         //获取用户选中的记录
         var id;
+        id=selectRows[0].id;
+        yao.add_Tab("管理员信息","admin-update",id);
         //异步提交给后台
-        $.ajax({
-          url:"adminupdate",
-          type:"post",
-          data:{"id":id},
-          success:function(data){
-            ttshop.addTab("管理员信息","admin/admin-update");
-          //  $('#dg').datagrid('reload');
-          },
-          dataType:"json"
-        });
+//        $.ajax({
+//          url:"adminupdate",
+//          type:"post",
+//          data:{"id":id},
+//          success:function(data){
+//            ttshop.addTab("管理员信息","admin/admin-update");
+//          //  $('#dg').datagrid('reload');
+//          },
+//          dataType:"json"
+//        });
 
       }
     });
