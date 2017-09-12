@@ -69,7 +69,6 @@
       {field:'id',title:'产品id',sortable:true},
       {field:'productClass',title:'产品类别',formatter:function(value,row,index){
           return value.productClassName;
-
       }},
       {field:'productName',title:'产品名称'},
       {field:'itemlimit',title:'项目总额'},
@@ -80,7 +79,7 @@
       {field:'startDate',title:'开投日期',sortable:true},
       {field:'endDate',title:'截止日期'},
       {field:'startLimit',title:'起投金额'},
-      {field:'transDate',title:'转让日期'},
+      {field:'transDate',title:'转让时间'},
     ]]
   });
   function searchForm(){
@@ -90,7 +89,7 @@
   }
 
   function add(){
-    ttshop.addTab('新增产品','product-add');
+    ttshop.addTab('新增产品','product/product-add');
   }
 </script>
 

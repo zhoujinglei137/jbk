@@ -61,10 +61,10 @@
       url: 'add',
       //在表单提交成功以后触发
       success: function (data) {
-        ttshop.closeTab('新增产品');
+        ttshop.closeTab('新增管理');
         $.messager.alert('消息', '添加成功！');
         if (data != null) {
-          ttshop.addTab('查询产品', 'product/product-list');
+          ttshop.addTab('查询管理员', 'product/product-list');
         }
       }
     });
