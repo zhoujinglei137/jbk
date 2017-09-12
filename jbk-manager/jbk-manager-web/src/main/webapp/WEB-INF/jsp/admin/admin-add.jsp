@@ -58,17 +58,13 @@
   function submitForm() {
     $('#adminAddForm').form('submit', {
       //提交表单动作的URL地址
-      url: 'adminadd',
-      //在提交之前触发，返回false可以终止提交
-//      onSubmit: function () {
-//        return $(this).form('validate');
-//      },
+      url: 'add',
       //在表单提交成功以后触发
       success: function (data) {
-        ttshop.closeTab('新增管理');
+        ttshop.closeTab('新增产品');
         $.messager.alert('消息', '添加成功！');
         if (data != null) {
-          ttshop.addTab('查询管理员', 'admin/admin-list');
+          ttshop.addTab('查询产品', 'product/product-list');
         }
       }
     });

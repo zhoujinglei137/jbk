@@ -21,7 +21,6 @@
   </div>
   <div>
     <button onclick="add()" class="easyui-linkbutton" data-options="iconCls:'icon-add',plain:true">新增</button>
-    <button onclick="edit()" class="easyui-linkbutton" data-options="iconCls:'icon-edit',plain:true">编辑</button>
     <button onclick="remove()" class="easyui-linkbutton" data-options="iconCls:'icon-remove',plain:true">删除</button>
   </div>
 </div>
@@ -88,6 +87,10 @@
     $('#dg').datagrid('load',{
       productName:  $('#productName').val()
     });
+  }
+
+  function add(){
+    ttshop.addTab('新增产品','product-add');
   }
 </script>
 
