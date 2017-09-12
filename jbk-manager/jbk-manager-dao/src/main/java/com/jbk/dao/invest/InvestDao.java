@@ -17,4 +17,8 @@ public interface InvestDao extends JpaRepository<Invest,Serializable> {
     @Modifying(clearAutomatically = true)
     @Query("update Invest i set i.stats = ?2 where i.id = ?1")
     int updateInvest(int id,int stats);
+
+
+
+
 }

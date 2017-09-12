@@ -10,10 +10,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>detail</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="/jbk/11112/css/style.css">
     <!-- <link rel="stylesheet/less" type="text/css" href="css/style.less" /> -->
-    <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-    <script type="text/javascript" src="js/all.js"></script>
+    <script type="text/javascript" src="/jbk/11112/js/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/jbk/11112/js/all.js"></script>
     <!--[if IE 6]>
     <script src="./js/iepng.js" type="text/javascript"></script>
     <script type="text/javascript">
@@ -125,8 +125,8 @@
             <form action="/jbk/Invest/save" method="post">
                 <%--<input type="hidden" name="pid" value="${product.id}">
                 <input type="hidden" name="TimeLimit" value="${product.investDeadline}">--%>
-                    <input type="hidden" name="pid" value="1">
-                    <input type="hidden" name="TimeLimit" value="90">
+                    <input type="hidden" name="pid" value="${product.id}">
+                    <input type="hidden" name="TimeLimit" value="${product.investDeadline}">
 
                 <div class="detail_intro_r fr">
                     <h2 class="det_intro_h2 clearfix"><span class="fl">投资进度:</span><em class="fr">46.05%</em></h2>
@@ -138,7 +138,7 @@
                     </div>
                     <!--  -->
                     <p class="det_rzye clearfix"><span class="fl">融资余额</span><em
-                            class="fr"><strong>1,078,121.00</strong>元</em></p>
+                            class="fr"><strong>${product.getlimit}</strong>元</em></p>
 
                     <p class="det_input">
                         <input type="text" placeholder="100" name="InvestLimit">

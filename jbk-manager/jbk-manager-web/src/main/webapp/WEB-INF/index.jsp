@@ -9,8 +9,12 @@
 <html>
 <head>
     <title></title>
+  <script>
+    window.onload = function(){
+      Window.location.href="product/to_index?pcid1=1&pcid2=2";
+    }
+  </script>
 </head>
 <body>
-<jsp:forward page="Invest/gohome"/>
 </body>
 </html>

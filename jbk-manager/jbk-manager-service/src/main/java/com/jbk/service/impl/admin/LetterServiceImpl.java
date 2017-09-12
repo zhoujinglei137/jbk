@@ -54,7 +54,7 @@ public class LetterServiceImpl implements LetterService{
             System.err.println("--------------lv"+letter.getLv());
             List<User> users = userDao.findByLv(1);
 
-            System.err.println("--------------count:"+users.get(0).getBirthday());
+            System.err.println("--------------count:"+users);
 
             letter.setState(0);
             letter.setCreateTime(new Date());
