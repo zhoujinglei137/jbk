@@ -1,7 +1,9 @@
 package com.jbk.dao.product;
 
-
+import com.jbk.admin.vo.Result;
 import com.jbk.pojo.product.Product;
+
+import com.jbk.productutil.PageOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

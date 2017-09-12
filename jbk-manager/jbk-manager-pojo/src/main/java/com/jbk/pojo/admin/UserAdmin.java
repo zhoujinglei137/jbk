@@ -78,4 +78,15 @@ public class UserAdmin {
     public void setSorts(Integer sorts) {
         this.sorts = sorts;
     }
+
+    @Override
+    public String toString() {
+        return "UserAdmin{" +
+                "id=" + id +
+                ", loginName='" + loginName + '\'' +
+                ", passWord='" + passWord + '\'' +
+                ", userName='" + userName + '\'' +
+                ", sorts=" + sorts +
+                '}';
+    }
 }

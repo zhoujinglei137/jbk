@@ -106,8 +106,6 @@ public class PageDto implements Pageable {
     public Sort getSort() {
         if (mysort!=null)
             return mysort;
-        if(sort==null || order ==null)
-            return null;
         String[] sorts = sort.split(",");
         String[] orders = order.split(",");
         List<Sort.Order> orders1 = new ArrayList<>();

@@ -8,87 +8,79 @@ import com.jbk.pojo.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 /**
  * 作者 ： 周京磊
- * 创建日期 : 2017/9/8
+ * 创建日期 : 2017/9/11
  * 项目名称 : jbk
  * 包的名称 : com.jbk.service.impl.admin
  * 说明 ：
  */
 @Service
-@Scope(value="prototype")
+@Scope("prototype")
 @Transactional
 public class LetterServiceImpl implements LetterService{
-
     @Autowired
     private LetterDao letterDao;
 
     @Autowired
     private UserDao userDao;
 
-    /**
-     * 添加信息
-     *
-     */
     @Override
     public int saveLetter(Letter letter) {
+        System.err.println("=====+++++:"+letter);
         int x = 0;
         if(letter.getUser() != null){
+            /**
+             * 判断是否用相应id与lv的用户存在
+             */
+            User byIdAndLv = userDao.findByIdAndLv(letter.getUser().getId(), letter.getLv());
+            if(byIdAndLv == null){
+                return 0;
+            }
+
             letter.setState(0);
             letter.setCreateTime(new Date());
             letterDao.save(letter);
-            x=121;
+            x=1;
         }else{
 
             List<Letter> list = new ArrayList<>();
-            List<User> users = userDao.findByLv(letter.getLv());
+            System.err.println("--------------lv"+letter.getLv());
+            List<User> users = userDao.findByLv(1);
+
+            System.err.println("--------------count:"+users);
+
             letter.setState(0);
             letter.setCreateTime(new Date());
             for (int i = 0;i<users.size();i++){
                 letter.setUser(users.get(i));
                 list.add(new Letter(letter.getTitle(),letter.getContext(),letter.getCreateTime(),letter.getState(),letter.getLv(),letter.getUser(),letter.getUserAdmin()));
             }
-            System.err.println("=====+++++:"+list.size());
+            System.err.println("=====+++++=====:"+list.size());
             letterDao.save(list);
             x=users.size();
         }
         return x;
     }
 
-    /**
-     * 查询有几份未读信息
-     *
-     */
     @Override
-    public List<Letter> selectLetter(int uid, int lv) {
-        List<Letter> letters = letterDao.selectLetter(uid, lv);
-        return letters;
+    public List<Letter> selectLetter(int id, int lv) {
+        return null;
     }
 
-    /**
-     *点击查看信息,并修改阅读状态
-     */
     @Override
     public Letter lookLetter(int id) {
-        Letter one = letterDao.findOne(id);
-        letterDao.upadteLetter(id);
-        return one;
+        return null;
     }
-    /**
-     * 删除信息
-     */
+
     @Override
     public int deleteLetter(int id) {
-        letterDao.delete(id);
-        return id;
+        return 0;
     }
-
-
-
 }

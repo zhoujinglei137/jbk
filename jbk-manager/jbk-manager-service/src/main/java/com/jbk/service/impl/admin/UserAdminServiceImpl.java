@@ -35,9 +35,9 @@ public class UserAdminServiceImpl implements UserAdminService{
     @Override
     public Result<UserAdmin> findAll(PageDto pageDto,UserAdmin userAdmin) {
         Result<UserAdmin> result = new Result<>();
-        System.err.println("1111111////////" + pageDto.getRows() + "=====>" + pageDto.getPage());
         ExampleMatcher exampleMatcher = ExampleMatcher.matchingAll().withIgnoreNullValues().withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING).withIgnoreCase();
         Example<UserAdmin> example = Example.of(userAdmin,exampleMatcher);
+        System.err.println(pageDto.getSort());
         Page<UserAdmin> page = userAdminDao.findAll(example,pageDto);
         System.err.println(page.getContent());
         result.setRows(page.getContent());

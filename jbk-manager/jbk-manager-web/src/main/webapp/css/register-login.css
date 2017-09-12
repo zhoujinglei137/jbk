@@ -14,30 +14,30 @@
 			width: 100%;
 			font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
 			color: #555;
-    		font-size: 15px;
-    		line-height: 1.7;
+			font-size: 15px;
+			line-height: 1.7;
 		}
 		input:focus{
 			outline: none;
 		}
 		canvas{
-  			display:block;
-  			vertical-align:bottom;
+			display:block;
+			vertical-align:bottom;
 		}
 		#box{
 			width: 100%;
-  			height: 100%;
-  			background-color: #F7FAFC;
-  			background-image: url('');
-  			background-size: cover;
-  			background-position: 50% 50%;
-  			background-repeat: no-repeat;
-  			position: fixed;
-  			top: 0;
-  			left: 0;
-  			right: 0;
-  			bottom: 0;
-  			z-index: 1;
+			height: 100%;
+			background-color: #F7FAFC;
+			background-image: url('');
+			background-size: cover;
+			background-position: 50% 50%;
+			background-repeat: no-repeat;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: 1;
 		}
 		.cent-box{
 			width: 300px;
@@ -61,10 +61,10 @@
 		}
 		.hide{
 			font: 0/0 a;
-    		color: transparent;
-    		text-shadow: none;
-    		background-color: transparent;
-    		border: 0;
+			color: transparent;
+			text-shadow: none;
+			background-color: transparent;
+			border: 0;
 		}
 		.cent-box-header .main-title{
 			/*160  74*/
@@ -126,7 +126,7 @@
 			float: none;
 			margin: auto;
 			text-align: left;
-			width: 300px;
+			width: 500px;
 		}
 		.form .group{
 			padding: 1px 0;
@@ -162,7 +162,7 @@
 			height: 40px;
 		}
 		.button{
-			margin-top:18px; 
+			margin-top:18px;
 		}
 		#button{
 			width: 100%;

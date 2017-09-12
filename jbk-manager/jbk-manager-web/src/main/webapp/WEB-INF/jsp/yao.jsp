@@ -36,6 +36,7 @@
       <ul class="easyui-tree">
         <li data-options="attributes:{'href':'product/product-add'}">新增产品</li>
         <li data-options="attributes:{'href':'product/product-list'}">查询产品</li>
+        <li data-options="attributes:{'href':'product/product-upade'}">修改产品</li>
       </ul>
     </div>
     <div title="索引管理" data-options="iconCls:'icon-tip'" style="padding:10px 0;">
