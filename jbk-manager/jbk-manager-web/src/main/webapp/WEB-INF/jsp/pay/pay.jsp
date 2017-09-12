@@ -9,15 +9,16 @@
   </head>
   
   <body>
-        <form action="Invest/pay" method="post">
+        <form action="/jbk/Invest/pay" method="post">
       	<table width="60%">
 			<tr>  
 				<td bgcolor="#F7FEFF" colspan="4">
-			 		订单号<INPUT TYPE="text" NAME="orderid" value=""> 
-			 		金额<INPUT TYPE="text" NAME="money" size="6">元
+			 		订单号<INPUT TYPE="text" NAME="orderid" value="${invest.id}">
+
 			 	</td>
+				<td>金额<INPUT TYPE="text" NAME="money" value="${invest.investLimit}">元</td>
 			</tr>
-			<tr><td><br/></td></tr>
+			<tr><td><br/></td><td></td></tr>
 			<tr>
 				<td>选择银行</td>
 			</tr>
