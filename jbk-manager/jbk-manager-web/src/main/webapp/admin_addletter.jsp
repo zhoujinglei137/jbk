@@ -88,8 +88,11 @@
       success:function(data){
 
         if (data>0){
-            $.messager.alert('消息','添加成功！');
-          ttshop.addTab('查询商品','admin_letter');
+
+            $.messager.alert('消息','添加成功！','info',function(){
+                window.location.href = 'yao';
+            });
+
         }else{
             $.messager.alert("消息","该用户不存在，请重新输入！");
         }
