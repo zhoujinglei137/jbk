@@ -36,7 +36,7 @@ public class Product {
      * 投资期限
      */
     @Column(name = "invest_deadline" )
-    private String investDeadline;
+    private Integer investDeadline;
     /**
      * 年收益率
      */
@@ -76,7 +76,7 @@ public class Product {
     public Product() {
     }
 
-    public Product(ProductClass productClass, String productName, Double itemlimit, String investDeadline, Double yearYield, Double spreadMargin, double getlimit, Date startDate, Date endDate, double startLimit, Date transDate) {
+    public Product(ProductClass productClass, String productName, Double itemlimit, Integer investDeadline, Double yearYield, Double spreadMargin, Double getlimit, Date startDate, Date endDate, Double startLimit, Date transDate) {
         this.productClass = productClass;
         this.productName = productName;
         this.itemlimit = itemlimit;
@@ -90,20 +90,20 @@ public class Product {
         this.transDate = transDate;
     }
 
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
     public ProductClass getProductClass() {
         return productClass;
     }
 
     public void setProductClass(ProductClass productClass) {
         this.productClass = productClass;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getProductName() {
@@ -122,11 +122,11 @@ public class Product {
         this.itemlimit = itemlimit;
     }
 
-    public String getInvestDeadline() {
+    public Integer getInvestDeadline() {
         return investDeadline;
     }
 
-    public void setInvestDeadline(String investDeadline) {
+    public void setInvestDeadline(Integer investDeadline) {
         this.investDeadline = investDeadline;
     }
 
@@ -184,5 +184,23 @@ public class Product {
 
     public void setTransDate(Date transDate) {
         this.transDate = transDate;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", productClass=" + productClass +
+                ", productName='" + productName + '\'' +
+                ", itemlimit=" + itemlimit +
+                ", investDeadline='" + investDeadline + '\'' +
+                ", yearYield=" + yearYield +
+                ", spreadMargin=" + spreadMargin +
+                ", getlimit=" + getlimit +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
+                ", startLimit=" + startLimit +
+                ", transDate=" + transDate +
+                '}';
     }
 }

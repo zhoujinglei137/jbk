@@ -2,6 +2,7 @@ package com.jbk.web.invest;
 
 import com.jbk.dto.InsertInvest;
 import com.jbk.dto.PayDto;
+import com.jbk.pojo.invest.Invest;
 import com.jbk.pojo.user.User;
 import com.jbk.service.invest.InvestService;
 import com.jbk.util.PayMentUtil;
@@ -25,15 +26,17 @@ public class InvestController {
     @Autowired
     private InvestService service;
 
+
     /**
      * 增加一条投资记录
      * @return
      */
     @RequestMapping(value = "Invest/save")
-    public String saveInvest(HttpSession session,InsertInvest invest){
+    public String saveInvest(HttpSession session,InsertInvest invest,Model model){
         User user = (User) session.getAttribute("user");
-        service.save(user,invest);
-        return "pay";
+        Invest invest1= service.save(user, invest);
+        model.addAttribute("invest",invest1);
+        return "pay/pay";
     }
 
     @RequestMapping("/Invest/pay")
@@ -50,7 +53,7 @@ public class InvestController {
         String p7_Pdesc = "";
         // 支付成功回调地址 ---- 第三方支付公司会访问、用户访问
         // 第三方支付可以访问网址
-        String p8_Url = "http://10.31.152.16:8080/bookStore/CallbackServlet";
+        String p8_Url = "http://10.31.152.16:8080/jbk/Callback";
         String p9_SAF = "";
         String pa_MP = "";
         String pr_NeedResponse = "1";
@@ -75,7 +78,7 @@ public class InvestController {
         model.addAttribute("pa_MP", pa_MP);
         model.addAttribute("pr_NeedResponse", pr_NeedResponse);
         model.addAttribute("hmac", hmac);
-        return "../../confirm";
+        return "pay/confirm";
     }
 
 

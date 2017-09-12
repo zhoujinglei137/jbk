@@ -2,6 +2,8 @@ package com.jbk.admin.vo.service;
 
 import com.jbk.pojo.admin.Letter;
 
+import java.util.List;
+
 /**
  * 作者 ： 周京磊
  * 创建日期 : 2017/9/8
@@ -16,5 +18,23 @@ public interface LetterService {
      * 功能:添加一个管理员发布的信息
      * 创建时间：2017/9/8.
      */
-    Letter saveLetter(Letter letter);
+
+    /**
+     * 添加信息
+     */
+    int  saveLetter(Letter letter);
+    /**
+     * 查询有几份未读信息
+     *
+     */
+    List<Letter> selectLetter(int id,int lv);
+
+    /**
+     *查看信息，并修改阅读状态
+     */
+    Letter lookLetter(int id);
+    /**
+     * 删除信息
+     */
+    int deleteLetter(int id);
 }

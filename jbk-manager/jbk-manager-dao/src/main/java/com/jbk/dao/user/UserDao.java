@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 作者 ： 周京磊
@@ -16,6 +17,16 @@ import java.io.Serializable;
 @Repository("userDao")
 public interface UserDao extends JpaRepository<User, Serializable> {
 
+    /**
+     * 查询相关等级的所有用户
+     * @param lv
+     * @return
+     */
+    List<User> findByLv(int lv);
 
+    /**
+     * 查询用户id与lv是否相同
+     */
+    User findByIdAndLv(int id,int lv);
 
 }

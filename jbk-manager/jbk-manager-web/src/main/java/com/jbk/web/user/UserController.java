@@ -22,7 +22,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 public class UserController {
-
     @Autowired
     private UserService userService;
 
@@ -32,6 +31,7 @@ public class UserController {
         System.err.println("user:"+user+";login"+login);
         System.err.println("1234567890-1234567890");
         return "login";
+
     }
 
     @RequestMapping("/registeruser1")
@@ -79,8 +79,15 @@ public class UserController {
     @RequestMapping("/verify")
     @ResponseBody
     public int  test5(String name){
-        int i = userService.userOne(name);
+        int i = 0;
+        Login login = userService.userOne(name);
+        if(login != null){
+            i=1;
+        }
         System.err.println("++++++++=====:"+i);
         return i;
     }
-}
+
+    }
+
+

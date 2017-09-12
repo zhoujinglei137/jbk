@@ -3,6 +3,8 @@ package com.jbk.service.user;
 import com.jbk.pojo.user.Login;
 import com.jbk.pojo.user.User;
 
+import java.util.List;
+
 /**
  * 作者 ： 周京磊
  * 创建日期 : 2017/9/6
@@ -14,5 +16,7 @@ public interface UserService {
      User userRegister(User user,Login login);
      Login userLogin(Login login);
 
-     int userOne(String name);
+     Login userOne(String name);
+
+     List<User> findByLv(int i);
 }

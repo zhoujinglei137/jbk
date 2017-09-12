@@ -48,7 +48,7 @@
   <div class="zxcf_nav clearfix px1000">
     <div class="zxcf_nav_l fl"><img src="images/zxcf_logo.png" alt=""></div>
     <div class="zxcf_nav_r fr">
-      <a href="index.jsp"><img src="images/lg_pic01.png" alt="">
+      <a href="index1.jsp"><img src="images/lg_pic01.png" alt="">
 		 	<span>返回首页</span></a>
 
     </div>

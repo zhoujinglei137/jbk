@@ -10,8 +10,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
-import javax.annotation.Resource;
 import javax.transaction.Transactional;
+import java.util.List;
 
 /**
  * 作者 ： 周京磊
@@ -25,7 +25,8 @@ import javax.transaction.Transactional;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-    @Resource
+   // @Resource
+    @Autowired
     private UserDao userDao;
     @Autowired
     private LoginDao loginDao;
@@ -50,12 +51,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int userOne(String name) {
-        int i = 0;
+    public Login userOne(String name) {
+
         Login byLoginName = loginDao.findByLoginName(name);
-        if(byLoginName!=null){
-            i=1;
-        }
-        return i;
+
+        return byLoginName;
+    }
+
+    @Override
+    public List<User> findByLv(int i){
+        return userDao.findByLv(i);
     }
 }

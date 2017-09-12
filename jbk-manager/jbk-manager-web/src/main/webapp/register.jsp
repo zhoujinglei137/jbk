@@ -43,7 +43,7 @@
     <div class="zxcf_nav_r fr">
       <img src="images/lg_pic01.png" alt="">
 		 	<span>
-		    <a href="index.jsp">返回首页</a></span>
+		    <a href="index1.jsp">返回首页</a></span>
 
     </div>
   </div>
