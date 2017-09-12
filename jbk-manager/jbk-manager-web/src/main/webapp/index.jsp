@@ -60,14 +60,26 @@
   <div class="zxcf_nav clearfix px1000">
     <div class="zxcf_nav_l fl"><img src="images/jbk2.png" alt="">&nbsp;&nbsp;&nbsp;&nbsp;<img src="images/zxcf_logo.png"></div>
     <div class="zxcf_nav_r fr">
-      <img src="images/zxcf_perinfo.png" alt="">
+
+
+      <c:choose>
+        <c:when test="${sessionScope.user_login.loginName == null}">
+
+        </c:when>
+        <c:otherwise>
+          <img src="images/zxcf_perinfo.png" alt="">
 		 	<span>我的账户
 		 	<img src="images/zxcf_icon01.png" alt=""></span>
-      <ul class="zxcf_perinfo" style="display:none;">
-        <li><a href="">111</a></li>
-        <li><a href="">111</a></li>
-        <li><a href="">111</a></li>
-      </ul>
+          <ul class="zxcf_perinfo" style="display:none;">
+            <li><a href="problem.jsp">用户信息</a></li>
+            <li><a href="">系统信息</a></li>
+            <li><a href="">111</a></li>
+          </ul>
+        </c:otherwise>
+      </c:choose>
+
+
+
     </div>
   </div>
 </div>
@@ -94,7 +106,8 @@
           <a href="register.jsp" class="btn btn2">立即注册</a>
         </c:when>
         <c:otherwise>
-          <font color="red" class="btn btn1" size="2">你好，${sessionScope.user_login.loginName}用户</font>
+          <a href="user_information.jsp" class="btn btn2">你好，${sessionScope.user_login.loginName}用户</a>
+
         </c:otherwise>
       </c:choose>
     </div>

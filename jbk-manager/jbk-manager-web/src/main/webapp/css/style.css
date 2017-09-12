@@ -1958,10 +1958,10 @@ body {
   font-size: 16px;
 }
 .notic_secl_ul .notic_curli {
-  background-color: #ebebeb;
+  background-color: #00ff00;
 }
 .notic_secl_ul li:hover {
-  background-color: #ebebeb;
+  background-color: #00ff00;
 }
 .notic_sec_r {
   width: 749px;
