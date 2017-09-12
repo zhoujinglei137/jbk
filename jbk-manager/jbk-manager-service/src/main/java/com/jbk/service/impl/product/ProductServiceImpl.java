@@ -81,7 +81,7 @@ public class ProductServiceImpl implements ProductService {
     public PageBean<Product> findAll(PageDto pageDto,Product product) {
         System.out.println(product);
         System.out.println(pageDto);
-        ExampleMatcher exampleMatcher = ExampleMatcher.matchingAll().withIgnoreNullValues();
+        ExampleMatcher exampleMatcher = ExampleMatcher.matchingAll().withIgnoreNullValues().withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
         Example<Product> productExample = Example.of(product,exampleMatcher);
         Page<Product> page = productDao.findAll(productExample, pageDto);
         System.out.println(page.getContent().size());
