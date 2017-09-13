@@ -31,10 +31,10 @@
         <li data-options="attributes:{'href':'admin/admin-list'}">查询管理员</li>
       </ul>
     </div>
-    <div title="网站内信息管理" style="padding:10px 0;">
+    <div title="产品管理" style="padding:10px 0;">
       <ul class="easyui-tree">
-        <li data-options="attributes:{'href':'admin_addletter.jsp'}">信息推送</li>
-        <li data-options="attributes:{'href':'content'}">举报信息</li>
+        <li data-options="attributes:{'href':'product/product-add'}">新增产品</li>
+        <li data-options="attributes:{'href':'product/product-list'}">查询产品</li>
       </ul>
     </div>
     <div title="索引管理" data-options="iconCls:'icon-tip'" style="padding:10px 0;">
@@ -56,12 +56,6 @@
 <script src="js/jquery-easyui-1.5/jquery.easyui.min.js"></script>
 <script src="js/jquery-easyui-1.5/locale/easyui-lang-zh_CN.js"></script>
 <script src="js/moment-with-locales.js"></script>
-
-
-<!-- 配置文件 -->
-<script src="js/ueditor/ueditor.config.js"></script>
-<!-- 编辑器源码文件 -->
-<script src="js/ueditor/ueditor.all.js"></script>
 <!-- 自定义脚本 -->
 <script src="js/common.js"></script>
 <script src="js/yao/yao.js"></script>

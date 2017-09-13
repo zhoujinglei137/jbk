@@ -2,6 +2,7 @@ package com.jbk.web.product;
 
 import com.jbk.pojo.product.Product;
 import com.jbk.pojo.product.ProductClass;
+import com.jbk.product.vo.VProduct;
 import com.jbk.service.proudct.ProductService;
 import com.jbk.util.PageBean;
 import com.jbk.util.PageDto;
@@ -9,11 +10,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
+import java.text.ParseException;
 import java.util.List;
 
 /**
@@ -42,7 +41,6 @@ public class ProductController {
 
     @RequestMapping("/")
     public String getProducts(Model model){
-
         Product product = new Product();
         ProductClass productClass = new ProductClass();
         productClass.setId(1);
@@ -62,6 +60,12 @@ public class ProductController {
     public String getProduct(Integer pid,Model model){
         model.addAttribute("product",productService.findById(pid));
         return "detail";
+    }
+
+    @RequestMapping(value = "add",method = RequestMethod.POST)
+    @ResponseBody
+    public  Product saveProduct(VProduct vProduct) throws ParseException {
+        return productService.save(vProduct);
     }
 
 }

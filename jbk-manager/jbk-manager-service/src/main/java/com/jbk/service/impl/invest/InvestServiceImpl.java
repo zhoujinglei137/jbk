@@ -48,8 +48,8 @@ public class InvestServiceImpl implements InvestService {
         product.setId(insertInvest.getPid());
         invest.setProduct(product);
         invest=investDao.save(invest);
-        if (invest != null && user != null) {
-            user.setJf(insertInvest.getInvestLimit().intValue());
+        if (invest != null) {
+            user.setJf( insertInvest.getInvestLimit().intValue());
         }
 
 
@@ -69,7 +69,7 @@ public class InvestServiceImpl implements InvestService {
     public PageBean<Invest> listInvest(PageDto pageDto,User user){
         Invest invest = new Invest();
         invest.setUser(user);
-        ExampleMatcher exampleMatcher = ExampleMatcher.matchingAll().withIgnoreNullValues().withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
+        ExampleMatcher exampleMatcher = ExampleMatcher.matchingAll().withIgnoreNullValues();
         Example<Invest> investExample = Example.of(invest,exampleMatcher);
         Page<Invest> page = investDao.findAll(investExample, pageDto);
 

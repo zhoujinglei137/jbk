@@ -47,27 +47,22 @@ public class ProductServiceImpl implements ProductService {
         Date endDate = null;
         Date transDate = null;
         if(vProduct.getStartDate() != null && vProduct.getStartDate() != ""){
-            startDate = new SimpleDateFormat().parse(vProduct.getStartDate());
+            startDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(vProduct.getStartDate());
         }else{
             startDate = null;
         }
         if(vProduct.getEndDate() != null && vProduct.getEndDate() != ""){
-            endDate = new SimpleDateFormat().parse(vProduct.getEndDate());
+            endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(vProduct.getEndDate());
         }else{
             endDate = null;
         }
-        if (vProduct.getTransDate()!=null && vProduct.getTransDate()!=""){
-            transDate=new SimpleDateFormat().parse(vProduct.getTransDate());
-        }else{
-            transDate = null;
-        }
+
         List<ProductClass> productClasses = productClassDao.findByProductClassName(vProduct.getProductClassName());
         ProductClass productClass=null;
         if(productClasses.size()>0&&productClasses.size()==1){
            productClass =productClasses.get(0);
         }
-        Product product = productDao.save(new Product(productClass,vProduct.getProdutName(),vProduct.getItemlimit(),vProduct.getInvestDeadline(),vProduct.getYearYield(),
-                vProduct.getSpreadMargin(),vProduct.getGetlimit(),startDate,endDate,vProduct.getStartLimit(),transDate));
+        Product product = productDao.save(new Product(productClass, vProduct.getProdutName(), vProduct.getItemlimit(), vProduct.getInvestDeadline(), vProduct.getYearYield(), vProduct.getSpreadMargin(), vProduct.getGetlimit(), startDate,endDate,vProduct.getStartLimit(), vProduct.getTransDate()));
         return product;
     }
     /**
@@ -81,7 +76,7 @@ public class ProductServiceImpl implements ProductService {
     public PageBean<Product> findAll(PageDto pageDto,Product product) {
         System.out.println(product);
         System.out.println(pageDto);
-        ExampleMatcher exampleMatcher = ExampleMatcher.matchingAll().withIgnoreNullValues();
+        ExampleMatcher exampleMatcher = ExampleMatcher.matchingAll().withIgnoreNullValues().withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING);
         Example<Product> productExample = Example.of(product,exampleMatcher);
         Page<Product> page = productDao.findAll(productExample, pageDto);
         System.out.println(page.getContent().size());

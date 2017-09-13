@@ -17,12 +17,28 @@ public class VProduct {
     private String startDate;
     private String endDate;
     private double startLimit;
-    private String transDate;
+    private int transDate;
+
+
+    public VProduct( String productClassName, String produtName, int investDeadline, double itemlimit, double yearYield, double spreadMargin, double getlimit, String startDate, String endDate, double startLimit, int transDate) {
+        this.productClassName = productClassName;
+        this.produtName = produtName;
+        this.investDeadline = investDeadline;
+        this.itemlimit = itemlimit;
+        this.yearYield = yearYield;
+        this.spreadMargin = spreadMargin;
+        this.getlimit = getlimit;
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.startLimit = startLimit;
+        this.transDate = transDate;
+
+    }
 
     public VProduct() {
     }
 
-    public VProduct(int id, String produtName, String  productClassName, double itemlimit, int investDeadline, double yearYield, double spreadMargin, double getlimit, String startDate, String endDate, double startLimit, String transDate) {
+    public VProduct(int id, String produtName, String  productClassName, double itemlimit, int investDeadline, double yearYield, double spreadMargin, double getlimit, String startDate, String endDate, double startLimit, int transDate) {
         this.id = id;
         this.produtName = produtName;
         this.productClassName = productClassName;
@@ -125,11 +141,11 @@ public class VProduct {
         this.startLimit = startLimit;
     }
 
-    public String getTransDate() {
+    public int getTransDate() {
         return transDate;
     }
 
-    public void setTransDate(String transDate) {
+    public void setTransDate(int transDate) {
         this.transDate = transDate;
     }
 }

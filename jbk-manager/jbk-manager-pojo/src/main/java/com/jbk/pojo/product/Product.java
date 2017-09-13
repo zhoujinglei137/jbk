@@ -71,12 +71,13 @@ public class Product {
      * 转让日期
      */
     @Column(name = "trans_date" )
-    private Date transDate;
+    private Integer transDate;
+
 
     public Product() {
     }
 
-    public Product(ProductClass productClass, String productName, Double itemlimit, Integer investDeadline, Double yearYield, Double spreadMargin, Double getlimit, Date startDate, Date endDate, Double startLimit, Date transDate) {
+    public Product(ProductClass productClass, String productName, Double itemlimit, Integer investDeadline, Double yearYield, Double spreadMargin, Double getlimit, Date startDate, Date endDate, Double startLimit, Integer transDate) {
         this.productClass = productClass;
         this.productName = productName;
         this.itemlimit = itemlimit;
@@ -178,11 +179,11 @@ public class Product {
         this.startLimit = startLimit;
     }
 
-    public Date getTransDate() {
+    public Integer getTransDate() {
         return transDate;
     }
 
-    public void setTransDate(Date transDate) {
+    public void setTransDate(Integer transDate) {
         this.transDate = transDate;
     }
 
