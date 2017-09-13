@@ -24,43 +24,64 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserAdminController {
     @Autowired
     private UserAdminService userAdminService;
+
     @RequestMapping("admin/{url}")
-    public String getUrl(@PathVariable() String url){
-        return "admin/"+url;
+    public String getUrl(@PathVariable() String url) {
+        return "admin/" + url;
     }
+
     @RequestMapping("/yao")
-    public String path(){
+    public String path() {
         return "yao";
     }
 
     @RequestMapping("admins")
     @ResponseBody
-    public Result showByPage(PageDto pageDto,UserAdmin userAdmin){
-        return userAdminService.findAll(pageDto,userAdmin);
+    public Result showByPage(PageDto pageDto, UserAdmin userAdmin) {
+        return userAdminService.findAll(pageDto, userAdmin);
     }
+
+    @RequestMapping("findOnLoginName")
+    @ResponseBody
+    public UserAdmin findByLoginName(String loginName) {
+        System.err.println("loginName进来了    ：   " + loginName);
+        return userAdminService.findByLoginName(loginName);
+    }
+
     @RequestMapping("adminadd")
     @ResponseBody
-    public UserAdmin adminAdd(UserAdmin userAdmin){
+    public UserAdmin adminAdd(UserAdmin userAdmin) {
         return userAdminService.save(userAdmin);
     }
+
     @RequestMapping("admins/batch")
     @ResponseBody
-    public int deleteMany(@RequestParam("ids[]")long[] ids){
-        return  userAdminService.deleteMany(ids);
+    public int deleteMany(@RequestParam("ids[]") long[] ids) {
+        return userAdminService.deleteMany(ids);
     }
+
     @RequestMapping("adminupdate")
     @ResponseBody
-    public UserAdmin updateUserAdmin(UserAdmin userAdmin){
-        System.err.println("     -----------------            "+userAdmin.getId());
+    public UserAdmin updateUserAdmin(UserAdmin userAdmin) {
         return userAdminService.save(userAdmin);
     }
+
     @RequestMapping("admin-update")
-    public String toUpdateUserAdmin(@RequestParam("id")Integer id,Model model){
-        if(id==0){
+    public String toUpdateUserAdmin(@RequestParam("id") Integer id, Model model) {
+        if (id == 0) {
             return "admin-update";
         }
         UserAdmin userAdmin = userAdminService.findOne(id);
-        model.addAttribute("userAdmin",userAdmin);
-        return  "admin/admin-update";
+        model.addAttribute("userAdmin", userAdmin);
+        return "admin/admin-update";
+    }
+
+    @RequestMapping("/checkLoginName")
+    @ResponseBody
+    public boolean check(String loginName){
+        if (userAdminService.findByLoginName(loginName) == null)
+            return true;
+        return false;
+
     }
 }

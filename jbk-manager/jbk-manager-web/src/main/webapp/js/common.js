@@ -14,7 +14,7 @@ var ttshop = {
     //添加选项卡
     addTab:function(title,href){
         if($('#tab').tabs('exists',title)){
-            $('#tab').tabs('select',title)
+            $('#tab').tabs('select',title);
         }else{
             $('#tab').tabs('add', {
                 title: title,
@@ -26,6 +26,12 @@ var ttshop = {
     //关闭选项卡
     closeTab:function(title){
         $('#tab').tabs('close',title);
+    },
+    updateTab: function (title,href) {
+        if(!$('#tab').tabs('exists',title)){
+            $('#tab').tabs('close',title);
+            $('#tab').tabs('select',title);
+        }
     }
 };
 

@@ -29,7 +29,6 @@
       <ul class="easyui-tree">
         <li data-options="attributes:{'href':'admin/admin-add'}">新增管理</li>
         <li data-options="attributes:{'href':'admin/admin-list'}">查询管理员</li>
-        <li data-options="attributes:{'href':'admin/admin-update'}">管理员信息</li>
       </ul>
     </div>
     <div title="网站内信息管理" style="padding:10px 0;">

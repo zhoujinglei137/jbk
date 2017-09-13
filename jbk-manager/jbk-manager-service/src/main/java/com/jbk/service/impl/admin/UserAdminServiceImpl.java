@@ -62,4 +62,10 @@ public class UserAdminServiceImpl implements UserAdminService{
         return userAdminDao.findOne(id);
     }
 
+    @Override
+    public UserAdmin findByLoginName(String loginName) {
+
+        return userAdminDao.findOnLoginName(loginName);
+    }
+
 }

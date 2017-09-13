@@ -37,21 +37,27 @@
     <p class="easyui-panel" title="新增管理">
     <input type="hidden" name="id" value="${userAdmin.id}">
     <p class="input_container">
-      <input class="easyui-textbox" name="loginName" label="登录名：" labelPosition="top" data-options="required:true" value="${userAdmin.loginName}" >
+      <input id="loginName" class="easyui-textbox" name="loginName" label="登录名：" labelPosition="top" data-options="required:true " value="${userAdmin.loginName}" >
     </p>
     <p class="input_container">
-      <input  class="easyui-textbox" name="userName" label="用户名：" labelPosition="top"  data-options="required:true" multiline="true" value="${userAdmin.userName}">
+      <input  class="easyui-textbox" name="userName" id="username"  label="用户名：" labelPosition="top"  data-options="required:true" multiline="true" value="${userAdmin.userName}">
     </p>
     <p class="input_container">
-      <input class="easyui-textbox" name="passWord" label="登陆密码：" labelPosition="top" data-options="required:true" value="${userAdmin.passWord}">
     </p>
     <p>
       <button onclick="submitForm()" class="easyui-linkbutton" type="button" data-options="iconCls:'icon-ok'">保存</button>
-      <button onclick="clearForm()" class="easyui-linkbutton" type="button" data-options="iconCls:'icon-undo'">重置</button>
+      <button onclick="clearForm()" class="easyui-linkbutton" type="button" data-options="iconCls:'icon-undo'">返回</button>
     </p>
   </form>
 </div>
 <script>
+
+  $('#loginName').textbox({
+
+  })
+
+
+
   //提交表单
   function submitForm() {
     $('#adminUpdateForm').form('submit', {
@@ -63,10 +69,12 @@
 //      },
       //在表单提交成功以后触发
       success: function (data) {
-        $.messager.alert('消息', '修改成功！');
-        ttshop.closeTab('管理员信息');
         if (data != null) {
-           window.location.href = 'yao';
+          $.messager.alert('消息', '修改成功！');
+          ttshop.closeTab('管理员信息');
+          $('#dg').datagrid('reload');
+//          页面跳转还有问题
+//         ttshop.add_Tab("查询管理员","admin/admin-list");
         }
       }
     });
@@ -74,7 +82,8 @@
   //表单的重置功能
   function clearForm() {
     $('#adminAddForm').form('reset');
-    //  ue.setContent('商品描述');
+      ttshop.closeTab('管理员信息');
+      $('#dg').datagrid('reload');
   }
 </script>
 </body>
