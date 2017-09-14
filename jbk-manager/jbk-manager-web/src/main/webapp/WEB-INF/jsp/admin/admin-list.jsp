@@ -94,14 +94,6 @@
         //ttshop.closeTab('查询管理员');
    //     ttshop.closeTab('查询管理员');
         yao.add_Tab("管理员信息","admin-update",id);
-
-
-
-
-
-
-
-
         //异步提交给后台
 //        $.ajax({
 //          url:"adminupdate",
@@ -138,6 +130,7 @@
       {field:'sorts',title:'类别'},
     ]]
   });
+
 </script>
 
 </body>

@@ -24,4 +24,5 @@ public interface UserAdminDao extends JpaRepository<UserAdmin,Serializable>{
     @Query(nativeQuery = true,value = "select *  from tb_admin where login_name=:loginName limit 1")
     UserAdmin findOnLoginName(@Param("loginName")String loginName);
 
+    UserAdmin findByLoginNameAndPassWord(String loginName,String passWord);
 }

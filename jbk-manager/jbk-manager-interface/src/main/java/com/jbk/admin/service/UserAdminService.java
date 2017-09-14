@@ -53,4 +53,11 @@ public interface UserAdminService {
      * 创建时间：  2017/9/6.
      */
     UserAdmin findByLoginName(String loginName);
+    /**
+     * 需要参数：loginName登录名,passWord密码
+     *  返回参数：boolean
+     * 功能:查询出一个对象
+     * 创建时间：  2017/9/6.
+     */
+    UserAdmin findForLogin(String loginName,String passWord);
 }

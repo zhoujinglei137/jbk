@@ -13,6 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
+
 /**
  * 创建人：姚鹏
  * 项目名称：聚宝坑
@@ -24,6 +27,30 @@ import org.springframework.web.bind.annotation.ResponseBody;
 public class UserAdminController {
     @Autowired
     private UserAdminService userAdminService;
+
+    @RequestMapping("userAdminLogin")
+    public String userAdminLogin(String loginName,String passWord,String remember,Model model,HttpServletResponse response){
+        UserAdmin userAdmin = userAdminService.findForLogin(loginName, passWord);
+
+        if(userAdmin==null) {
+            model.addAttribute("message", "用户名或密码错误！");
+            return "adminlogin";
+        }
+        if (remember != null){
+            System.err.println("没别的事情，输出一波试试"+remember);
+            Cookie cookie = new Cookie("loginName",userAdmin.getLoginName());
+            cookie.setPath("/");
+            cookie.setMaxAge(24*60*60);
+            response.addCookie(cookie);
+        }else{
+            Cookie cookie = new Cookie("loginName",null);
+            cookie.setPath("/");
+            cookie.setMaxAge(1);
+            response.addCookie(cookie);
+        }
+        //request.getSession().setAttribute("userAdmin_login",userAdmin);
+        return "yao";
+    }
 
     @RequestMapping("admin/{url}")
     public String getUrl(@PathVariable() String url) {
@@ -39,13 +66,6 @@ public class UserAdminController {
     @ResponseBody
     public Result showByPage(PageDto pageDto, UserAdmin userAdmin) {
         return userAdminService.findAll(pageDto, userAdmin);
-    }
-
-    @RequestMapping("findOnLoginName")
-    @ResponseBody
-    public UserAdmin findByLoginName(String loginName) {
-        System.err.println("loginName进来了    ：   " + loginName);
-        return userAdminService.findByLoginName(loginName);
     }
 
     @RequestMapping("adminadd")
