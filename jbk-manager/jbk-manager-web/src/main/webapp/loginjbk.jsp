@@ -73,7 +73,7 @@
               <input type="text" id="loginName" name="loginName" value="${cookie.loginname.value}" placeholder="用户名" class="lg_input01 lg_input" onchange="ln();"><div ><font id="ln" color="red"></font></div>
             </p>
             <p class="mt20">
-             <div><font color="red">${requestScope.message}</font></div>
+            <div><font color="red">${requestScope.message}</font></div>
             </p>
             <p class="mt20">
               <input type="password" id="passWord" name="passWord" placeholder="密码" class="lg_input02 lg_input" onchange="pw();"><div ><font id="pw" color="red"></font></div>

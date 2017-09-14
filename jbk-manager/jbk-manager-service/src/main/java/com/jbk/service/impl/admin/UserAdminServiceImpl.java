@@ -28,6 +28,7 @@ public class UserAdminServiceImpl implements UserAdminService{
     @Transactional
     @Override
     public UserAdmin save(UserAdmin admin) {
+        admin.setSorts(1);
         return userAdminDao.save(admin);
     }
 
@@ -57,8 +58,19 @@ public class UserAdminServiceImpl implements UserAdminService{
     }
 
     @Override
-    public UserAdmin findOne(long id) {
+    public UserAdmin findOne(Integer id) {
         return userAdminDao.findOne(id);
+    }
+
+    @Override
+    public UserAdmin findByLoginName(String loginName) {
+
+        return userAdminDao.findOnLoginName(loginName);
+    }
+
+    @Override
+    public UserAdmin findForLogin(String loginName, String passWord) {
+        return userAdminDao.findByLoginNameAndPassWord(loginName, passWord);
     }
 
 }
