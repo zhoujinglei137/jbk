@@ -37,6 +37,12 @@
         <li data-options="attributes:{'href':'product/product-list'}">查询产品</li>
       </ul>
     </div>
+    <div title="产品类别管理" style="padding:10px 0;">
+      <ul class="easyui-tree">
+        <li data-options="attributes:{'href':'productclass/productclass-add'}">新增产品类别</li>
+        <li data-options="attributes:{'href':'productclass/productclass-list'}">查询产品类别</li>
+      </ul>
+    </div>
     <div title="索引管理" data-options="iconCls:'icon-tip'" style="padding:10px 0;">
       <ul class="easyui-tree">
         <li data-options="attributes:{index-item'}">solr索引库管理</li>

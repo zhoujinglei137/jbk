@@ -1,6 +1,8 @@
 package com.jbk.service.proudct;
 
 import com.jbk.pojo.product.ProductClass;
+import com.jbk.util.PageBean;
+import com.jbk.util.PageDto;
 
 import java.util.List;
 
@@ -12,9 +14,9 @@ public interface ProductClassService {
 
     ProductClass findById(int id);
 
-    List<ProductClass> findAll();
+    PageBean<ProductClass> findAll(PageDto pageDto,ProductClass productClass);
 
     ProductClass save(ProductClass productClass);
 
-    int removeById(int id);
+    int removeById(long[] ids);
 }
