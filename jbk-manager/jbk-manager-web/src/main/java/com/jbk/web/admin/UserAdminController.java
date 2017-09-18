@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
@@ -29,15 +30,13 @@ public class UserAdminController {
     private UserAdminService userAdminService;
 
     @RequestMapping("userAdminLogin")
-    public String userAdminLogin(String loginName,String passWord,String remember,Model model,HttpServletResponse response){
+    public String userAdminLogin(String loginName,String passWord,String remember,HttpServletRequest request,HttpServletResponse response){
         UserAdmin userAdmin = userAdminService.findForLogin(loginName, passWord);
-
         if(userAdmin==null) {
-            model.addAttribute("message", "用户名或密码错误！");
+            request.setAttribute("message", "用户名或密码错误！");
             return "adminlogin";
         }
         if (remember != null){
-            System.err.println("没别的事情，输出一波试试"+remember);
             Cookie cookie = new Cookie("loginName",userAdmin.getLoginName());
             cookie.setPath("/");
             cookie.setMaxAge(24*60*60);
@@ -48,7 +47,8 @@ public class UserAdminController {
             cookie.setMaxAge(1);
             response.addCookie(cookie);
         }
-        //request.getSession().setAttribute("userAdmin_login",userAdmin);
+        request.getSession().removeAttribute("user_admin");
+        request.getSession().setAttribute("user_admin",userAdmin);
         return "yao";
     }
 
@@ -64,8 +64,9 @@ public class UserAdminController {
 
     @RequestMapping("admins")
     @ResponseBody
-    public Result showByPage(PageDto pageDto, UserAdmin userAdmin) {
-        return userAdminService.findAll(pageDto, userAdmin);
+    public Result showByPage(PageDto pageDto, UserAdmin userAdmin,HttpServletRequest request) {
+        UserAdmin user_admin = (UserAdmin)request.getSession().getAttribute("user_admin");
+        return userAdminService.findAll(pageDto, userAdmin,user_admin);
     }
 
     @RequestMapping("adminadd")
@@ -89,6 +90,7 @@ public class UserAdminController {
     @RequestMapping("admin-update")
     public String toUpdateUserAdmin(@RequestParam("id") Integer id, Model model) {
         if (id == 0) {
+            model.addAttribute("update-message","需要先选中一个用户！！！");
             return "admin-update";
         }
         UserAdmin userAdmin = userAdminService.findOne(id);

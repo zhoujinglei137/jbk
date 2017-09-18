@@ -127,7 +127,7 @@
       {field:'id',title:'管理员编号',sortable:true},
       {field:'loginName',title:'登录名',sortable:true},
       {field:'userName',title:'昵称',sortable:true},
-      {field:'sorts',title:'类别'},
+      {field:'sorts',title:'类别',sortable:true},
     ]]
   });
 

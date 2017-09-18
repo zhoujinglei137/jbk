@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html lang="zn">
 <head>
   <meta charset="utf-8">
@@ -14,6 +15,7 @@
   <link rel="stylesheet" type="text/css" href="css/register-login.css">
 </head>
 <body>
+//pc_vip_369258_02_b0fab
 <div id="box"></div>
 <div class="cent-box register-box">
   <div class="cent-box-header">
@@ -38,9 +40,10 @@
           </div>
         </div>
       </div>
-      <button type="submit" class="login-btn register-btn" id="button">登录</button>
-      <button type="button" class="login-btn register-btn" id="button1" onclick="retrieve">返回</button>
-      <%--<div class="button">--%>
+      <button type="submit" class="login-btn register-btn" id="button" >确定</button>
+      <hr>
+      <button type="button" class="login-btn register-btn" id="button" onclick="retrieve();">取消</button>
+       <%--<div class="button">--%>
         <%--<button type="submit" class="login-btn register-btn" id="button">登录</button>--%>
       <%--</div>--%>
     </div>

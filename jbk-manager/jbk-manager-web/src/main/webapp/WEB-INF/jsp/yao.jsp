@@ -47,7 +47,7 @@
 
 <div data-options="region:'center'" style="background:#eee;">
   <div id="tab" class="easyui-tabs" data-options="fit:true">
-    <div title="欢迎页面" style="padding:20px;"><h1>管理员界面</h1></div>
+    <div title="欢迎页面" style="padding:20px;"><h1>欢迎${user_admin.userName}登录，祝您生活愉快</h1></div>
   </div>
 </div>
 <!-- jquery -->

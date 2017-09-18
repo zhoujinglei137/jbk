@@ -32,7 +32,7 @@
         </div>
         <div class="group-ipt password">
           <input type="password" name="passWord" id="passWord" class="ipt" placeholder="输入密码" required>
-          <font color="red"><font > ${message}</font>
+          <font color="red">${message}</font>
         </div>
           <c:choose>
             <c:when test="${cookie.loginName.value == null}">

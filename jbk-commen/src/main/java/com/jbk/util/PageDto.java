@@ -78,7 +78,9 @@ public class PageDto implements Pageable {
         this.mysort = sort;
 
     }
-
+    public String getSort(int i){
+        return sort;
+    }
     public PageDto(int page,int rows,String sort,String order){
         this.page = page;
         this.rows = rows;
@@ -119,6 +121,7 @@ public class PageDto implements Pageable {
         }
         return new Sort(orders1);
     }
+
 
     @Override
     public Pageable next() {

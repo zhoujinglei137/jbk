@@ -16,6 +16,7 @@
           <element id="archive" name="jbk-manager-pojo-1.0-SNAPSHOT.jar">
             <element id="module-output" name="jbk-manager-pojo" />
           </element>
+          <element id="library" level="project" name="Maven: com.github.wenhao:jpa-spec:3.1.1" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.40" />
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.0.29" />
           <element id="library" level="project" name="Maven: antlr:antlr:2.7.7" />

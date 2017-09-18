@@ -24,7 +24,7 @@ public interface UserAdminService {
      * 功能:查询符合条件的记录
      * 创建时间：  2017/9/6.
      */
-    Result<UserAdmin> findAll(PageDto pageDto,UserAdmin userAdmin);
+    Result<UserAdmin> findAll(PageDto pageDto,UserAdmin userAdmin,UserAdmin user_admin);
     /**
      * 需要参数：无
      *  返回参数：long
