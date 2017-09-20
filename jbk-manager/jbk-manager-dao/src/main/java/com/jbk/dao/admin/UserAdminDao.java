@@ -29,7 +29,4 @@ public interface UserAdminDao extends JpaRepository<UserAdmin,Serializable>,JpaS
 
     UserAdmin findByLoginNameAndPassWord(String loginName,String passWord);
 
-    @Query(nativeQuery = true,value = "select *  from tb_admin where login_name like #{userAdmin.loginName} and user_name like #{userAdmin.userName} limit #{page1.page},#{page1.rows}")
-    List<UserAdmin> findOnSorts(@Param("page1")Page page1,@Param("userAdmin")UserAdmin userAdmin,@Param("sorts")int sorts);
-
 }

@@ -101,7 +101,8 @@ public class UserAdminController {
     @RequestMapping("/checkLoginName")
     @ResponseBody
     public boolean check(String loginName){
-        if (userAdminService.findByLoginName(loginName) == null)
+        UserAdmin userAdmin = userAdminService.findByLoginName(loginName);
+        if (userAdmin == null)
             return true;
         return false;
 

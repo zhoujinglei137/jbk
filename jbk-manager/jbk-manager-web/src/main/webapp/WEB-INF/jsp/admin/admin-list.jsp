@@ -127,7 +127,19 @@
       {field:'id',title:'管理员编号',sortable:true},
       {field:'loginName',title:'登录名',sortable:true},
       {field:'userName',title:'昵称',sortable:true},
-      {field:'sorts',title:'类别',sortable:true},
+      {field:'sorts',title:'类别',sortable:true,formatter:function(value,row,index){
+        switch (value){
+          case 0:
+            return 'CEO';
+            break;
+          case 1:
+            return '管理员';
+            break;
+          default :
+            return '未知';
+            break;
+        }
+      }},
     ]]
   });
 

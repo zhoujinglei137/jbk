@@ -19,7 +19,7 @@ public interface UserAdminService {
      */
     UserAdmin save(UserAdmin admin);
     /**
-     * 需要参数：无
+     * 需要参数：pageDto(分页，排序的类)，userAdmin（传进来的参数，进行模糊查询的条件），user_admin（登录的用户）
      *  返回参数：UserAdmin类型的集合
      * 功能:查询符合条件的记录
      * 创建时间：  2017/9/6.

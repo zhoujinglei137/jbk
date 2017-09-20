@@ -42,13 +42,13 @@
     <p class="input_container">
       <input  class="easyui-textbox" name="userName" id="username"  label="用户名：" labelPosition="top"  data-options="required:true" multiline="true" value="${userAdmin.userName}">
     <p class="input_container">
-      <input class="easyui-textbox" name="passWord"  label="登陆密码：" labelPosition="top" type="password" id="passWord" data-options="required:true,validType:['passWord','length[6,16]']
+      <input class="easyui-textbox" name="passWord"  label="登陆密码：" labelPosition="top" type="text" id="passWord" data-options="required:true,validType:['passWord','length[6,16]']
 " value="${userAdmin.passWord}">
     </p>
 
     <p class="input_container">
-     <input class="easyui-textbox" label="重复密码：" labelPosition="top" name="passWord1" id="passWord1" type="password"
-                  data-options="required:true,validType:['passWord1','equals[\'#passWord\']']">
+     <input class="easyui-textbox" label="重复密码：" labelPosition="top" name="passWord1" id="passWord1" type="text"
+                  data-options="required:true,validType:['passWord1','equals[\'#passWord\']']" value="${userAdmin.passWord}">
     </p>
     <p>
       <button onclick="submitForm()" class="easyui-linkbutton" type="button" data-options="iconCls:'icon-ok'">保存</button>
