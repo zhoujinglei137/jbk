@@ -6,15 +6,16 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<jsp:forward page="/"/>
+<%--<html>
 <head>
     <title></title>
   <script>
     window.onload = function(){
-      Window.location.href="product/to_index?pcid1=1&pcid2=2";
+      window.location.href="/";
     }
   </script>
 </head>
 <body>
 </body>
-</html>
+</html>--%>

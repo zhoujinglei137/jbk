@@ -69,18 +69,31 @@ public class LetterServiceImpl implements LetterService{
         return x;
     }
 
+    /**
+     * 查询有几份未读信息
+     *
+     */
     @Override
-    public List<Letter> selectLetter(int id, int lv) {
-        return null;
+    public List<Letter> selectLetter(int uid, int lv) {
+        List<Letter> letters = letterDao.selectLetter(uid, lv);
+        return letters;
     }
 
+    /**
+     *点击查看信息,并修改阅读状态
+     */
     @Override
     public Letter lookLetter(int id) {
-        return null;
+        Letter one = letterDao.findOne(id);
+        letterDao.upadteLetter(id);
+        return one;
     }
-
+    /**
+     * 删除信息
+     */
     @Override
     public int deleteLetter(int id) {
-        return 0;
+        letterDao.delete(id);
+        return id;
     }
 }

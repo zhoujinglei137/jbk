@@ -43,7 +43,7 @@ public class User {
      * 身份证号
      */
     @Column(name = "cardId")
-    private int cardId;
+    private String cardId;
     /**
      * 生日
      */
@@ -116,11 +116,11 @@ public class User {
         this.jf = jf;
     }
 
-    public int getCardId() {
+    public String getCardId() {
         return cardId;
     }
 
-    public void setCardId(int cardId) {
+    public void setCardId(String cardId) {
         this.cardId = cardId;
     }
 

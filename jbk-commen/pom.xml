@@ -90,5 +90,11 @@
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
         </dependency>
+        <!--邮箱jar-->
+        <dependency>
+            <groupId>com.qf</groupId>
+            <artifactId>main</artifactId>
+            <version>1.0.1</version>
+        </dependency>
     </dependencies>
 </project>

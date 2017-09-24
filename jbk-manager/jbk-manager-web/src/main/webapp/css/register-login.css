@@ -14,30 +14,30 @@
 			width: 100%;
 			font-family: 'Helvetica Neue',Helvetica,'PingFang SC','Hiragino Sans GB','Microsoft YaHei',Arial,sans-serif;
 			color: #555;
-			font-size: 15px;
-			line-height: 1.7;
+    		font-size: 15px;
+    		line-height: 1.7;
 		}
 		input:focus{
 			outline: none;
 		}
 		canvas{
-			display:block;
-			vertical-align:bottom;
+  			display:block;
+  			vertical-align:bottom;
 		}
 		#box{
 			width: 100%;
-			height: 100%;
-			background-color: #F7FAFC;
-			background-image: url('');
-			background-size: cover;
-			background-position: 50% 50%;
-			background-repeat: no-repeat;
-			position: fixed;
-			top: 0;
-			left: 0;
-			right: 0;
-			bottom: 0;
-			z-index: 1;
+  			height: 100%;
+  			background-color: #F7FAFC;
+  			background-image: url('');
+  			background-size: cover;
+  			background-position: 50% 50%;
+  			background-repeat: no-repeat;
+  			position: fixed;
+  			top: 0;
+  			left: 0;
+  			right: 0;
+  			bottom: 0;
+  			z-index: 1;
 		}
 		.cent-box{
 			width: 300px;
@@ -61,15 +61,14 @@
 		}
 		.hide{
 			font: 0/0 a;
-			color: transparent;
-			text-shadow: none;
-			background-color: transparent;
-			border: 0;
+    		color: transparent;
+    		text-shadow: none;
+    		background-color: transparent;
+    		border: 0;
 		}
 		.cent-box-header .main-title{
-			/*160  74*/
-			width: 200px;
-			height: 100px;
+			width: 160px;
+			height: 74px;
 			margin: 0 auto;
 			background: url('../images/jbk1.png') no-repeat;
 			background-size: contain;
@@ -103,7 +102,7 @@
     		color: #555;
 		}
 		.index-tab .index-slide-nav a:hover{
-			color: #0f88eb：
+			color: #0f88eb;
 			opacity: 1;
 		}
 		.index-tab .index-slide-nav a.active{
@@ -126,7 +125,7 @@
 			float: none;
 			margin: auto;
 			text-align: left;
-			width: 500px;
+			width: 300px;
 		}
 		.form .group{
 			padding: 1px 0;
@@ -162,7 +161,7 @@
 			height: 40px;
 		}
 		.button{
-			margin-top:18px;
+			margin-top:18px; 
 		}
 		#button{
 			width: 100%;
@@ -177,6 +176,19 @@
     		cursor: pointer;
     		font-family: 'Microsoft Yahei';
 		}
+		.button{
+			 width: 100%;
+			 background: #0f88eb;
+			 box-shadow: none;
+			 border: 0;
+			 border-radius: 3px;
+			 line-height: 41px;
+			 color: #fff;
+			 display: block;
+			 font-size: 15px;
+			 cursor: pointer;
+			 font-family: 'Microsoft Yahei';
+		 }
 		#button:hover{
 			background: #80c3f7;
 		}

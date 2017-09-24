@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * 包的名称 : com.jbk.web.controller
  * 说明 ：
  */
+
 @Controller
 public class HelloController {
     @RequestMapping("/login")
@@ -19,8 +20,14 @@ public class HelloController {
     }
 
     @RequestMapping("/{jn}")
-    public String test2(@PathVariable("jn") String jn){
+      public String test2(@PathVariable("jn") String jn){
         System.out.println("经过了："+jn);
         return jn;
     }
+    @RequestMapping("user/{jn}")
+    public String test3(@PathVariable("jn") String jn){
+        System.out.println("经过了："+jn);
+        return "user/"+jn;
+    }
 }
+

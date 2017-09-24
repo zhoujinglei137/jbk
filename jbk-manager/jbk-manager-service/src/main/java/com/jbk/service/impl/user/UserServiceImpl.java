@@ -34,6 +34,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User userRegister(User user, Login login) {
+
         user.setLv(1);
         user.setJf(10);
         User save = userDao.save(user);
@@ -50,6 +51,11 @@ public class UserServiceImpl implements UserService {
         return loginu;
     }
 
+    /**
+     * 判断用户名存不存在
+     * @param name
+     * @return
+     */
     @Override
     public Login userOne(String name) {
 
@@ -62,4 +68,74 @@ public class UserServiceImpl implements UserService {
     public List<User> findByLv(int i){
         return userDao.findByLv(i);
     }
+
+    /**
+     * 查询预留电话存不存在
+     * @param tel1
+     * @param id
+     * @return
+     */
+    @Override
+    public User findByTel1(String tel1,int id) {
+
+        User byTel1 = userDao.findByTel1AndId(tel1,id);
+
+        return byTel1;
+    }
+
+    /**
+     * 判断密码是否真确
+     * @param pw
+     * @return
+     */
+    @Override
+    public int findPassWord(Login login,String pw) {
+
+        Login byPassWord = loginDao.findByIdAndPassWord(login.getId(), pw);
+        if(byPassWord == null){
+            return 0;
+        }
+        loginDao.save(login);
+        return 1;
+    }
+
+    @Override
+    public int updataTel(int id, String tp1, String tp2) {
+        User byTel1AndId = userDao.findByTel1AndId(tp1, id);
+        if (byTel1AndId == null){
+            return  0 ;
+        }
+        System.err.println("+++++====+++++"+userDao.updataTel(id,tp2));
+        return 1;
+    }
+
+    /**
+     * 完善个人信息
+     * @param user
+     * @return
+     */
+    @Override
+    public int upadteUser(User user) {
+        int i = userDao.updateUser(user.getId(), user.getCardId(), user.getTel2(), user.getBirthday());
+        return i;
+    }
+
+    /**
+     * 根据Id查询信息
+     * @param
+     * @return
+     */
+    @Override
+    public User selectUser(int id) {
+        User one = userDao.findOne(id);
+        return one;
+    }
+
+    @Override
+    public int updateEmail(String mail, int id) {
+        int i = userDao.updateEmail(mail, id);
+        return i;
+    }
+
+
 }

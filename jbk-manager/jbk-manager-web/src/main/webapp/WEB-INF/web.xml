@@ -54,7 +54,7 @@
 
 
     <servlet-mapping>
-        <servlet-name>default</servlet-name>3
+        <servlet-name>default</servlet-name>
         <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 </web-app>

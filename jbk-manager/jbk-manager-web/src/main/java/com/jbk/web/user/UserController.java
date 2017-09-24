@@ -4,6 +4,7 @@ package com.jbk.web.user;
 import com.jbk.pojo.user.Login;
 import com.jbk.pojo.user.User;
 import com.jbk.service.user.UserService;
+import com.jbk.util.EmailUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * 作者 ： 周京磊
@@ -25,7 +29,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/registeruser")
+   @RequestMapping("/registeruser")
     @ResponseBody
     public String  test1(User user,Login login){
         System.err.println("user:"+user+";login"+login);
@@ -34,12 +38,18 @@ public class UserController {
 
     }
 
+    /**
+     *
+     * @param user
+     * @param login
+     * @return
+     */
     @RequestMapping("/registeruser1")
     public String  test2(User user,Login login){
         System.err.println("user:"+user+";login"+login);
         System.err.println("1234567890-1234567890");
         userService.userRegister(user,login);
-        return "../../index";
+        return "index";
     }
 
     @RequestMapping("/loginuser")
@@ -66,15 +76,20 @@ public class UserController {
 
 
         request.getSession().setAttribute("user_login",loginu);
-        return "../../index";
+        return "index";
     }
 
     @RequestMapping("/logout")
     public String  test4(HttpServletRequest request){
        request.getSession().removeAttribute("user_login");
-        return "../../index";
+        return "index";
     }
 
+    /**
+     * 验证用户名是否存在
+     * @param name
+     * @return
+     */
 
     @RequestMapping("/verify")
     @ResponseBody
@@ -88,6 +103,81 @@ public class UserController {
         return i;
     }
 
+    /**
+     * 修改密码
+     * @param
+     * @return
+     */
+    @RequestMapping("/updateLogin")
+    @ResponseBody
+    public int  test6(String pw1,String pw2,HttpServletRequest request){
+        System.err.println("===="+pw1+"====="+pw2);
+        Login login1 = (Login)request.getSession().getAttribute("user_login");
+        Login login = new Login();
+        login.setId(1);
+        login.setLoginName("123123");
+       login.setMiPassWord("321321");
+        login.setPassWord(pw2);
+        int i = userService.findPassWord(login, pw1);
+
+        return i;
     }
+
+    @RequestMapping("/updatetal")
+    @ResponseBody
+    public int  test7(String tp1,String tp2,HttpServletRequest request){
+        System.err.println("===="+tp1+"====="+tp2);
+        Login login = (Login)request.getSession().getAttribute("user_login");
+       /* int id = login.getId();*/
+        int i = userService.updataTel(1, tp1, tp2);
+        return i;
+    }
+
+
+    @RequestMapping("/updateuser")
+    @ResponseBody
+    public int  test8(String cardid,String phone,String date,HttpServletRequest request){
+        Login login = (Login)request.getSession().getAttribute("user_login");
+        System.err.println("===="+cardid+"====="+phone+"===="+date);
+        Date datetime = null;
+        try {
+             datetime = new SimpleDateFormat("yyyy-MM-dd").parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        User user  = new User();
+        user.setId(3);
+        user.setCardId(cardid);
+        user.setTel2(phone);
+        user.setBirthday(datetime);
+        int i = userService.upadteUser(user);
+        System.err.println("+++6+++"+i);
+        return i;
+    }
+
+    @RequestMapping("/send_email")
+    @ResponseBody
+    public int  test9(HttpServletRequest request){
+        Login login = (Login)request.getSession().getAttribute("user_login");
+        //int id = login.getId();
+        System.err.println("===="+login);
+        User user = userService.selectUser(2);
+        int rd = EmailUtils.sendEmail("941068441@qq.com");
+        return rd;
+    }
+
+
+    @RequestMapping("/update_email")
+    @ResponseBody
+    public int  test10( String email ,HttpServletRequest request){
+        Login login = (Login)request.getSession().getAttribute("user_login");
+        //int id = login.getId();
+        System.err.println("===="+login);
+        int i = userService.updateEmail(email, 3);
+
+
+        return i;
+    }
+}
 
 

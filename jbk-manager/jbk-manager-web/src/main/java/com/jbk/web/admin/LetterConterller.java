@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * ×÷Õß £º ÖÜ¾©ÀÚ
- * ´´½¨ÈÕÆÚ : 2017/9/10
- * ÏîÄ¿Ãû³Æ : jbk
- * °üµÄÃû³Æ : com.jbk.web.admin
- * ËµÃ÷ £º
+ * ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Ü¾ï¿½ï¿½ï¿½
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : 2017/9/10
+ * ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ : jbk
+ * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ : com.jbk.web.admin
+ * Ëµï¿½ï¿½ ï¿½ï¿½
  */
 @Controller
 public class LetterConterller {
@@ -51,4 +51,6 @@ public class LetterConterller {
         System.err.println("++++++++++++++++"+i);
         return i;
     }
+
+
 }

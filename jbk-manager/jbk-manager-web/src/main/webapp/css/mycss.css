@@ -1,0 +1,117 @@
+.black_overlay{
+    display: none;
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    z-index: 1001;
+    -moz-opacity: 0.8;
+    opacity: 0.50;
+    filter: alpha(opacity=80);;
+}
+.white_content {
+    display: none;
+    position: absolute;
+    top: 15%;
+    left: 30%;
+    width: 40%;
+    height: 70%;
+    border: 16px solid lightblue;
+   /* background-image: url("../images/zjlbg.jpg");*/
+    background-color: #ffffaa;
+    z-index:1002;
+    overflow: auto;
+}
+.white_content_small {
+    display: none;
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    width: 40%;
+    height: 50%;
+    border: 16px solid lightblue;
+  /*  background-image: url("../images/zjlbg.jpg");*/
+    background-color: #ffaaaa;
+    z-index:1002;
+    overflow: auto;
+}
+
+
+.bu {
+    background-color: #238bcb;
+    height: 40px;
+    display: block;
+    line-height: 40px;
+    width: 42%;
+    border-radius: 3px;
+    font-size: 14px;
+    color: #fff;
+   /* text-align: center;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transform-origin: bottom;
+    -ms-transform-origin: bottom;
+    transform-origin: bottom;
+    -webkit-transition: all .2s;
+    transition: all .2s;*/
+    border-radius: 8px;
+}
+
+.bu:hover, .bu:focus {
+    background-color: #0e70ac;
+    color: #fff;
+    box-shadow: 0 2px 5px -2px rgba(0, 0, 0, .3);
+    outline: 0
+}
+
+.bu:not(.disable):active {
+    -webkit-transform: scale(.98);
+    -ms-transform: scale(.98);
+    transform: scale(.98);
+    background-color: #0e70ac;
+    box-shadow: none
+}
+
+
+.inp{
+    background:transparent;
+    border:1px solid #00ffaa;
+    color: #000;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    width: 42%;
+    height: 36px;
+    padding: 0 12px;
+    transition: background 0.3s ease-in-out;
+    border-radius: 8px;
+}
+.inp:focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+.inpm{
+    background:transparent;
+    border:1px solid #00ffaa;
+    color: #000;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1em;
+    width: 42%;
+    height: 36px;
+    padding: 0 12px;
+    transition: background 0.3s ease-in-out;
+    border-radius: 8px;
+}
+.inpm:focus {
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+
