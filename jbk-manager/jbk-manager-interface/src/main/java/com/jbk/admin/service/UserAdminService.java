@@ -19,12 +19,12 @@ public interface UserAdminService {
      */
     UserAdmin save(UserAdmin admin);
     /**
-     * 需要参数：无
+     * 需要参数：pageDto(分页，排序的类)，userAdmin（传进来的参数，进行模糊查询的条件），user_admin（登录的用户）
      *  返回参数：UserAdmin类型的集合
      * 功能:查询符合条件的记录
      * 创建时间：  2017/9/6.
      */
-    Result<UserAdmin> findAll(PageDto pageDto,UserAdmin userAdmin);
+    Result<UserAdmin> findAll(PageDto pageDto,UserAdmin userAdmin,UserAdmin user_admin);
     /**
      * 需要参数：无
      *  返回参数：long
@@ -40,10 +40,24 @@ public interface UserAdminService {
      */
     int deleteMany(long[] ids);
     /**
-     * 需要参数：无
+     * 需要参数：id主键
      *  返回参数：UserAdmin
      * 功能:查询出一个对象
      * 创建时间：  2017/9/6.
      */
-    UserAdmin findOne(long id);
+    UserAdmin findOne(Integer id);
+    /**
+     * 需要参数：loginName登录名
+     *  返回参数：UserAdmin
+     * 功能:查询出一个对象
+     * 创建时间：  2017/9/6.
+     */
+    UserAdmin findByLoginName(String loginName);
+    /**
+     * 需要参数：loginName登录名,passWord密码
+     *  返回参数：boolean
+     * 功能:查询出一个对象
+     * 创建时间：  2017/9/6.
+     */
+    UserAdmin findForLogin(String loginName,String passWord);
 }

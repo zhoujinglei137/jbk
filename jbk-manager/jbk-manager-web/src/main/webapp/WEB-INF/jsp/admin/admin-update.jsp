@@ -33,30 +33,40 @@
 </head>
 <body>
 <div align="center"  title="新增管理" data-options="fit:true">
-  <form class="main_form"  id="adminAddForm" name="adminAddForm" method="post">
+  <form class="main_form"  id="adminUpdateForm" name="adminUpdateForm" method="post">
     <p class="easyui-panel" title="新增管理">
-      <%--<p class="input_container">--%>
-      <%--<input class="easyui-textbox" name="id" label="管理员编号：" labelPosition="top" >--%>
-      <%--</p>--%>
+    <input type="hidden" name="id" value="${userAdmin.id}">
     <p class="input_container">
-      <input class="easyui-textbox" name="loginName" label="登录名：" labelPosition="top" value="${userAdmin.loginName}" >
+      <input id="loginName" class="easyui-textbox" name="loginName" label="登录名：" labelPosition="top" data-options="required:true " validType="remote['/jbk/checkLoginName','loginName']" invalidMessage="该用户名已存在" value="${userAdmin.loginName}" >
     </p>
     <p class="input_container">
-      <input  class="easyui-textbox" name="userName" label="用户名：" labelPosition="top" multiline="true" value="${userAdmin.userName}">
-    </p>
+      <input  class="easyui-textbox" name="userName" id="username"  label="用户名：" labelPosition="top"  data-options="required:true" multiline="true" value="${userAdmin.userName}">
     <p class="input_container">
-      <input class="easyui-textbox" name="passWord" label="登陆密码：" labelPosition="top" value="${userAdmin.passWord}">
+      <input class="easyui-textbox" name="passWord"  label="登陆密码：" labelPosition="top" type="text" id="passWord" data-options="required:true,validType:['passWord','length[6,16]']
+" value="${userAdmin.passWord}">
+    </p>
+
+    <p class="input_container">
+     <input class="easyui-textbox" label="重复密码：" labelPosition="top" name="passWord1" id="passWord1" type="text"
+                  data-options="required:true,validType:['passWord1','equals[\'#passWord\']']" value="${userAdmin.passWord}">
     </p>
     <p>
       <button onclick="submitForm()" class="easyui-linkbutton" type="button" data-options="iconCls:'icon-ok'">保存</button>
-      <button onclick="clearForm()" class="easyui-linkbutton" type="button" data-options="iconCls:'icon-undo'">重置</button>
+      <button onclick="clearForm()" class="easyui-linkbutton" type="button" data-options="iconCls:'icon-undo'">返回</button>
     </p>
   </form>
 </div>
 <script>
+
+  $('#loginName').textbox({
+
+  })
+
+
+
   //提交表单
   function submitForm() {
-    $('#adminAddForm').form('submit', {
+    $('#adminUpdateForm').form('submit', {
       //提交表单动作的URL地址
       url: 'adminupdate',
       //在提交之前触发，返回false可以终止提交
@@ -65,10 +75,12 @@
 //      },
       //在表单提交成功以后触发
       success: function (data) {
-        ttshop.closeTab('管理员信息');
-        $.messager.alert('消息', '修改成功！');
         if (data != null) {
-          ttshop.addTab('查询管理员', 'admin/admin-list');
+          $.messager.alert('消息', '修改成功！');
+          ttshop.closeTab('管理员信息');
+          $('#dg').datagrid('reload');
+//          页面跳转还有问题
+//         ttshop.add_Tab("查询管理员","admin/admin-list");
         }
       }
     });
@@ -76,8 +88,17 @@
   //表单的重置功能
   function clearForm() {
     $('#adminAddForm').form('reset');
-    //  ue.setContent('商品描述');
+      ttshop.closeTab('管理员信息');
+      $('#dg').datagrid('reload');
   }
+  $.extend($.fn.validatebox.defaults.rules, {
+    equals: {
+      validator: function(value,param){
+        return value == $(param[0]).val();
+      },
+      message: '两次密码需要一致！！！'
+    }
+  });
 </script>
 </body>
 </html>

@@ -40,7 +40,7 @@
                 <c:when test="${sessionScope.user_login.loginName == null}">
                     <a href="loginjbk.jsp" class="curspan">立即登录</a>
                     <span>|</span>
-                    <a href="register.jsp">免费注册</a>
+                    <a href="adminlogin.jsp">免费注册</a>
                 </c:when>
                 <c:otherwise>
                     <font color="red" size="2">你好，${sessionScope.user_login.loginName}用户</font>
@@ -94,7 +94,7 @@
             <c:choose>
                 <c:when test="${sessionScope.user_login.loginName == null}">
                     <a href="loginjbk.jsp" class="btn btn1">立即登录</a><br>
-                    <a href="register.jsp" class="btn btn2">立即注册</a>
+                    <a href="adminlogin.jsp" class="btn btn2">立即注册</a>
                 </c:when>
                 <c:otherwise>
                     <font color="red" class="btn btn1" size="2">你好，${sessionScope.user_login.loginName}用户</font>
