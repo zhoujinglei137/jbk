@@ -29,7 +29,7 @@
         <slf4j.version>1.7.21</slf4j.version>
         <logback.core.version>1.1.1</logback.core.version>
         <logback.classic.version>1.1.1</logback.classic.version>
-        <jackson.version>2.4.3</jackson.version>
+        <jackson.version>2.9.10.5</jackson.version>
         <json.version>20160212</json.version>
         <druid.version>1.0.29</druid.version>
         <httpclient.version>4.3.5</httpclient.version>
