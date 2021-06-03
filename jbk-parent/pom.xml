@@ -32,7 +32,7 @@
         <jackson.version>2.4.3</jackson.version>
         <json.version>20160212</json.version>
         <druid.version>1.0.29</druid.version>
-        <httpclient.version>4.3.5</httpclient.version>
+        <httpclient.version>4.5.13</httpclient.version>
         <jstl.version>1.2</jstl.version>
         <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
         <jsp-api.version>2.2</jsp-api.version>
