@@ -18,7 +18,7 @@
 
         <junit.version>4.12</junit.version>
 
-        <spring.version>4.2.8.RELEASE</spring.version>
+        <spring.version>5.2.20.RELEASE</spring.version>
         <spring-data-jpa.version>1.11.4.RELEASE</spring-data-jpa.version>
         <hibernate.version>5.2.10.Final</hibernate.version>
         <hibernate-jpa.version>1.0.0.Final</hibernate-jpa.version>
